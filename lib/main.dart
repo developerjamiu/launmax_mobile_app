@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:launmax_app/UI/forgotpassword/forgotPassword.dart';
+import 'package:launmax_app/UI/signIn/signin.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: ForgotPassword()
     );
   }
 }
