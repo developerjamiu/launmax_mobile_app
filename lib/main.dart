@@ -4,7 +4,7 @@ import 'package:launmax_app/homeScreen/homeScreen.dart';
 import 'package:launmax_app/homeScreen/styles.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
 class App extends StatefulWidget {
@@ -13,11 +13,18 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  final firebaseApp = Firebase.initializeApp();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       // Initialize FlutterFire
-      future: Firebase.initializeApp(),
+      future: firebaseApp,
       builder: (context, snapshot) {
         print(snapshot.hasError);
         // Check for errors
@@ -49,9 +56,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'LaunMax',
         theme: ThemeData(
-          primarySwatch: AppColor.primaryColor,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+            primarySwatch: AppColor.primaryColor,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            scaffoldBackgroundColor: AppColor.background),
         home: HomeScreen()
         //MyHomePage(title: 'Flutter Demo Home Page'),
         );
