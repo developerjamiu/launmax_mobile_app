@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:launmax_app/UI/forgotpassword/forgotPassword.dart';
 import 'package:launmax_app/UI/signIn/signin.dart';
+=======
+import 'package:launmax_app/homeScreen/homeScreen.dart';
+>>>>>>> 654e93069cb1debb86129305febb8241bcce6bb3
 
 void main() {
   runApp(MyApp());
@@ -11,12 +15,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+<<<<<<< HEAD
       home: ForgotPassword()
+=======
+      home: HomeScreen()
+      //MyHomePage(title: 'Flutter Demo Home Page'),
+>>>>>>> 654e93069cb1debb86129305febb8241bcce6bb3
     );
   }
 }
@@ -31,13 +41,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,23 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Container()
       ),
     );
   }
