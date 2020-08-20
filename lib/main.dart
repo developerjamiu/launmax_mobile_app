@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:launmax_app/UI/forgotpassword/forgotPassword.dart';
 import 'package:launmax_app/UI/signIn/signin.dart';
-=======
 import 'package:launmax_app/homeScreen/homeScreen.dart';
->>>>>>> 654e93069cb1debb86129305febb8241bcce6bb3
 
 void main() {
   runApp(MyApp());
@@ -21,12 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-<<<<<<< HEAD
       home: ForgotPassword()
-=======
-      home: HomeScreen()
-      //MyHomePage(title: 'Flutter Demo Home Page'),
->>>>>>> 654e93069cb1debb86129305febb8241bcce6bb3
     );
   }
 }
