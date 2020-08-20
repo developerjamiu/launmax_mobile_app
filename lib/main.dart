@@ -1,12 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:launmax_app/homeScreen/homeScreen.dart';
+import 'package:launmax_app/homeScreen/styles.dart';
 
 void main() {
-  runApp(App());
+  runApp(MyApp());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -40,15 +46,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeScreen()
-      //MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'LaunMax',
+        theme: ThemeData(
+          primarySwatch: AppColor.primaryColor,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: HomeScreen()
+        //MyHomePage(title: 'Flutter Demo Home Page'),
+        );
   }
 }
 
@@ -67,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.transparent,
       ),
       body: Center(child: Container()),
     );
