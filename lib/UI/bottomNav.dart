@@ -5,6 +5,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:launmax_app/UI/screens/homeScreen.dart';
+import 'package:launmax_app/UI/screens/profile/profile.dart';
 import 'package:launmax_app/UI/screens/signIn/res.dart';
 
 class TheHomePage extends StatefulWidget {
@@ -43,7 +44,7 @@ class _TheHomePageState extends State<TheHomePage> {
           onPageChanged: _onPageChanged,
           children: <Widget>[
             HomeScreen(),
-            Container(child: Center(child: Text('Profile page'))),
+            ProfileScreen(),
           ],
         ),
         bottomNavigationBar: Container(
