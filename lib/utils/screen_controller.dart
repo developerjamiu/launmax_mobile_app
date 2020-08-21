@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:launmax_app/homeScreen/homeScreen.dart';
 import 'package:launmax_app/models/app_state.dart';
+import 'package:launmax_app/ui/screens/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 
 class ScreenController extends StatefulWidget {
@@ -37,12 +38,7 @@ class _ScreenControllerState extends State<ScreenController> {
       if (FirebaseAuth.instance.currentUser == null) {
         // No User, show OnBoarding
         print(FirebaseAuth.instance.currentUser);
-        return Scaffold(
-          body: Center(
-              child: Container(
-            color: Colors.green,
-          )),
-        );
+        return OnBoardingScreen();
       }
     }
     return HomeScreen();
