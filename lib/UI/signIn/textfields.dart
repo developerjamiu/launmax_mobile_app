@@ -46,15 +46,15 @@ class _SigninTextFieldState extends State<SigninTextField> {
         
         filled: false,
         errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),
+          borderSide: BorderSide(color: Colors.black, width: 1.0),
           borderRadius: BorderRadius.circular(3),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),
+          borderSide: BorderSide(color: Colors.black, width: 1.0),
           borderRadius: BorderRadius.circular(3),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xff9d9d9d), width: 1.0),
+          borderSide: BorderSide(color: Colors.black, width: 1.0),
           borderRadius: BorderRadius.circular(9),
         ),
         labelText: widget.text,
