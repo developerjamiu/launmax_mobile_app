@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:launmax/screens/signup/signup(1).dart';
-import 'package:launmax/screens/signup/signup(2).dart';
+import 'package:launmax_app/screens/signup/signup(1).dart';
+import 'package:launmax_app/screens/signup/signup(2).dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -11,16 +11,23 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   CarouselController _carouselController = CarouselController();
-int pageIndex = 0;
+  int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        leading: IconButton(icon: Icon(FontAwesomeIcons.times,color: Colors.black), onPressed: () => print('cancelled')),
-        actions: [FlatButton(onPressed: ()=> print('signin'), child: Text('Sign in',style: TextStyle(color: Color(0xFF41A393),fontSize: 16)))],
+        leading: IconButton(
+            icon: Icon(FontAwesomeIcons.times, color: Colors.black),
+            onPressed: () => print('cancelled')),
+        actions: [
+          FlatButton(
+              onPressed: () => print('signin'),
+              child: Text('Sign in',
+                  style: TextStyle(color: Color(0xFF41A393), fontSize: 16)))
+        ],
       ),
       body: SafeArea(
         child: Column(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:launmax_app/homeScreen/homeScreen.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/ui/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:launmax_app/ui/screens/onboarding_screen.dart';
@@ -28,7 +29,9 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (context) => AppState(),
         ),
-        ChangeNotifierProvider(create: (_) => SigninViewModel()),
+        ChangeNotifierProvider(
+          create: (_) => SigninViewModel(),
+        ),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

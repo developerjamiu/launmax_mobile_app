@@ -1,4 +1,4 @@
-name: launmax
+name: launmax_app
 description: Launmax application | An app that provides on-demand laundry service
 
 # The following line prevents the package from being accidentally published to
@@ -37,8 +37,6 @@ dependencies:
 
   carousel_slider: ^2.1.0
   font_awesome_flutter: any
-
-  provider: ^4.3.2+1
 
 dev_dependencies:
   flutter_test:

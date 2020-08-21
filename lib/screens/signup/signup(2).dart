@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:launmax/widgets/form_fields.dart';
+import 'package:launmax_app/widgets/form_fields.dart';
 
 class Signup2 extends StatefulWidget {
   final CarouselController carouselController;
