@@ -1,10 +1,41 @@
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:launmax_app/homeScreen/homeScreen.dart';
 
 import 'screens/signup/signup_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      // Initialize FlutterFire
+      future: Firebase.initializeApp(),
+      builder: (context, snapshot) {
+        print(snapshot.hasError);
+        // Check for errors
+        if (snapshot.hasError) {
+          Scaffold.of(context).showSnackBar(
+            SnackBar(
+              content: Text("Sending Message"),
+            ),
+          );
+        }
+
+        // Once complete, show your application
+        if (snapshot.connectionState == ConnectionState.done) {
+          return MyApp();
+        }
+
+        // Otherwise, show something whilst waiting for initialization to complete
+        return CircularProgressIndicator();
+      },
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -12,13 +43,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignupScreen(),
+
+      home: HomeScreen()
+      //MyHomePage(title: 'Flutter Demo Home Page'),
+
     );
   }
 }
@@ -33,16 +68,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Container()
-      ),
+      body: Center(child: Container()),
     );
   }
 }
