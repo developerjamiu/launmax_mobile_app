@@ -38,19 +38,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   List<Widget> pages = <Widget>[
     PageViewItems(
-      assetImagePath: 'assets/images/wash.png',
+      assetImagePath: 'assets/images/wash.svg',
       title: 'Fast and Smooth Wash',
       description:
           'Experience quick and clean service from our great laundry professionals.',
     ),
     PageViewItems(
-      assetImagePath: 'assets/images/pickup.png',
+      assetImagePath: 'assets/images/pickup.svg',
       title: 'Instant Pick up',
       description:
           'Request for a quick pick up or schedule a pick up at your convienient time.',
     ),
     PageViewItems(
-      assetImagePath: 'assets/images/track.png',
+      assetImagePath: 'assets/images/track.svg',
       title: 'Track Orders',
       description:
           'Monitor the progress of your laundry from pick-up to delivery.',

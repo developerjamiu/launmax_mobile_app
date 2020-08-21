@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PageViewItems extends StatelessWidget {
   final String assetImagePath;
@@ -19,7 +20,7 @@ class PageViewItems extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(
+        SvgPicture.asset(
           assetImagePath,
           width: 237,
           height: 150,
