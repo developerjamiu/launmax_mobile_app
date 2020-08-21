@@ -1,12 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:launmax_app/homeScreen/homeScreen.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/signIn/signinViewModel.dart';
+import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
-import 'package:launmax_app/ui/screens/onboarding_screen.dart';
 
 void main() {
   runApp(MyApp());

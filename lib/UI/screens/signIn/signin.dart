@@ -8,7 +8,7 @@ import 'package:launmax_app/UI/signIn/res.dart';
 import 'package:launmax_app/UI/signIn/signinViewModel.dart';
 import 'package:launmax_app/UI/signIn/textfields.dart';
 import 'package:launmax_app/UI/signIn/validators.dart';
-import 'package:launmax_app/homeScreen/homeScreen.dart';
+import 'package:launmax_app/ui/screens/homeScreen.dart';
 import 'package:provider/provider.dart';
 
 class SignIn extends StatelessWidget {

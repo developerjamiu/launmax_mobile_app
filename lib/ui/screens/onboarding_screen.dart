@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:launmax_app/homeScreen/homeScreen.dart';
+import 'package:launmax_app/ui/screens/homeScreen.dart';
 
 import '../widgets/custom_raised_button.dart';
 import '../widgets/page_indicator.dart';
@@ -55,6 +55,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   ];
 
   void navigateToNextPage() {
+    setState(() {
+      _pageController.animateToPage(currentIndex + 1,
+          duration: Duration(milliseconds: 400), curve: Curves.linear);
+    });
+  }
+
+  void navigateToLastPage() {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => HomeScreen()),
     );
@@ -68,7 +75,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.black,
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),

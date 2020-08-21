@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:launmax_app/UI/signIn/snackbarservice.dart';
+import 'package:launmax_app/ui/screens/signIn/snackbarservice.dart';
 
 enum ButtonState { Idle, Pressed }
 
