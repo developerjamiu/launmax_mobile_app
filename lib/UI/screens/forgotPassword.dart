@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:launmax_app/UI/screens/signIn/colors.dart';
 import 'package:launmax_app/UI/screens/signIn/res.dart';
 import 'package:launmax_app/UI/screens/signIn/signinViewModel.dart';

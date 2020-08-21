@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:launmax_app/UI/bottomNav.dart';
 import 'package:launmax_app/UI/screens/signIn/res.dart';
 
-
 final user = "John";
 
 class HomeScreen extends StatelessWidget {
@@ -17,24 +16,24 @@ class HomeScreen extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-                'Good Morning, $user!',
-                style: TextStyle(
-                    fontSize: McGyver.textSize(context, 2),
-                    fontWeight: FontWeight.w300,
-                    color: Color(0xFFA7A7A7)),
-              ),
+            'Good Morning, $user!',
+            style: TextStyle(
+                fontSize: McGyver.textSize(context, 2),
+                fontWeight: FontWeight.w300,
+                color: Color(0xFFA7A7A7)),
+          ),
         ),
       ),
       backgroundColor: Colors.white,
       body: ListView(
         children: <Widget>[
           Padding(
-           padding: const EdgeInsets.only(left: 29.0, right: 29),
+            padding: const EdgeInsets.only(left: 29.0, right: 29),
             child: Row(
               children: [
-                Text('What do you want to do today?',
+                Text('What do you want \nto do today?',
                     style: TextStyle(
-                         fontSize: McGyver.textSize(context, 2.4),
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF130A38))),
                 SizedBox(
@@ -47,28 +46,29 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-         SizedBox(height: McGyver.rsDoubleH(context, 1.4),),
+          SizedBox(
+            height: McGyver.rsDoubleH(context, 1.4),
+          ),
           Container(
             decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(width: 2.0, color: Color(0xfff9f9f9)),
-                  )
-                ),
+                border: Border(
+              top: BorderSide(width: 2.0, color: Color(0xfff9f9f9)),
+            )),
             child: Padding(
-               padding: const EdgeInsets.only(top:32,left: 29.0, right: 29),
+              padding: const EdgeInsets.only(top: 32, left: 29.0, right: 29),
               child: Row(
                 children: [
                   Container(
-                     decoration: BoxDecoration(
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Colors.grey.shade300,
-                        blurRadius: 10,
-                        spreadRadius: 4,
-                        offset: Offset(0, 7),
-                      ),
-                    ],
-                  ),
+                    decoration: BoxDecoration(
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Colors.grey.shade300,
+                          blurRadius: 10,
+                          spreadRadius: 4,
+                          offset: Offset(0, 7),
+                        ),
+                      ],
+                    ),
                     child: MyCards(
                       heading: "Request Pick up",
                       color: Colors.white,
@@ -79,20 +79,19 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(width: McGyver.rsDoubleW(context, 7)),
                   Container(
                     decoration: BoxDecoration(
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Colors.grey.shade300,
-                        blurRadius: 10,
-                        spreadRadius: 4,
-                        offset: Offset(0, 7),
-                      ),
-                    ],
-                  ),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Colors.grey.shade300,
+                          blurRadius: 10,
+                          spreadRadius: 4,
+                          offset: Offset(0, 7),
+                        ),
+                      ],
+                    ),
                     child: MyCards(
                       heading: "Schedule Pick up",
                       color: Colors.white,
-                      image: 
-                        'assets/images/calendar.svg',
+                      image: 'assets/images/calendar.svg',
                       tap: null,
                     ),
                   ),
@@ -123,10 +122,9 @@ class HomeScreen extends StatelessWidget {
                     tap: null,
                   ),
                 ),
-              SizedBox(width: McGyver.rsDoubleW(context, 7)),
+                SizedBox(width: McGyver.rsDoubleW(context, 7)),
                 Container(
-                   
-                     decoration: BoxDecoration(
+                  decoration: BoxDecoration(
                     boxShadow: <BoxShadow>[
                       BoxShadow(
                         color: Colors.grey.shade300,
@@ -171,13 +169,12 @@ class MyCards extends StatelessWidget {
       onTap: tap,
       child: Container(
         decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.only(
-             bottomRight: Radius.circular(10),
-            bottomLeft: Radius.circular(10),
-            topLeft: Radius.zero,
-            topRight: Radius.zero)
-        ),
+            color: color,
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(10),
+                bottomLeft: Radius.circular(10),
+                topLeft: Radius.zero,
+                topRight: Radius.zero)),
         child: Stack(
           children: <Widget>[
             Padding(
