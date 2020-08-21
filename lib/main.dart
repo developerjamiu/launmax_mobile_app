@@ -5,6 +5,8 @@ import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
+import 'package:launmax_app/ui/screens/onboarding_screen.dart';
+
 
 void main() {
   runApp(MyApp());
