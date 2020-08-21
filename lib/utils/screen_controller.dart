@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:launmax_app/UI/bottomNav.dart';
 import 'package:launmax_app/ui/screens/homeScreen.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/ui/screens/onboarding_screen.dart';
@@ -38,7 +39,7 @@ class _ScreenControllerState extends State<ScreenController> {
       if (FirebaseAuth.instance.currentUser == null) {
         // No User, show OnBoarding
         print(FirebaseAuth.instance.currentUser);
-        return HomeScreen();
+        return TheHomePage();
       }
     }
     return HomeScreen();
