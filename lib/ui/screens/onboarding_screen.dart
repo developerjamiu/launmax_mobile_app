@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/screens/homeScreen.dart';
 import 'package:launmax_app/ui/screens/signup/signup_screen.dart';
 
 import '../widgets/app_raised_button.dart';
@@ -131,9 +130,35 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         text: 'Next',
                         onPressed: navigateToNextPage,
                       )
-                    : AppRaisedButton(
-                        text: 'Get Started',
-                        onPressed: getStarted,
+                    : Column(
+                        children: [
+                          AppRaisedButton(
+                            text: 'Sign in with Google',
+                            textColor: Colors.black54,
+                            prefixIcon: Image.asset(
+                              'assets/images/googlelogo.png',
+                              width: 24,
+                            ),
+                            onPressed: () {},
+                            backgroundColor: Colors.white,
+                          ),
+                          SizedBox(height: 20),
+                          AppRaisedButton(
+                            text: 'Sign in with Apple',
+                            textColor: Colors.black54,
+                            prefixIcon: Image.asset(
+                              'assets/images/apple.png',
+                              width: 24,
+                            ),
+                            onPressed: () {},
+                            backgroundColor: Colors.white,
+                          ),
+                          SizedBox(height: 20),
+                          AppRaisedButton(
+                            text: 'Get Started',
+                            onPressed: getStarted,
+                          ),
+                        ],
                       ),
               ],
             ),

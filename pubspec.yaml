@@ -3,7 +3,7 @@ description: Launmax application | An app that provides on-demand laundry servic
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -46,9 +46,9 @@ flutter:
   uses-material-design: true
 
   assets:
-   - assets/images/Vector.png
-   - assets/images/Vector.svg
-   - assets/images/
+    - assets/images/Vector.png
+    - assets/images/Vector.svg
+    - assets/images/
 
   fonts:
     - family: SFProText
