@@ -1,0 +1,47 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:launmax_app/UI/bottomNav.dart';
+import 'package:launmax_app/ui/screens/homeScreen.dart';
+import 'package:launmax_app/models/app_state.dart';
+import 'package:launmax_app/ui/screens/onboarding_screen.dart';
+import 'package:provider/provider.dart';
+
+class ScreenController extends StatefulWidget {
+  @override
+  _ScreenControllerState createState() => _ScreenControllerState();
+}
+
+class _ScreenControllerState extends State<ScreenController> {
+  // Define an async function to initialize FlutterFire
+  void initializeFlutterFire() async {
+    try {
+      // Wait for Firebase to initialize and set `_initialized` state to true
+      await Firebase.initializeApp();
+      Provider.of<AppState>(context, listen: false).flutterFireInitialized =
+          true;
+    } catch (e) {
+      // Set `_error` state to true if Firebase initialization fails
+      Provider.of<AppState>(context, listen: false).flutterFireInitialized =
+          false;
+    }
+  }
+
+  @override
+  void initState() {
+    initializeFlutterFire();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (Provider.of<AppState>(context, listen: true).isFlutterFireInitialized) {
+      if (FirebaseAuth.instance.currentUser == null) {
+        // No User, show OnBoarding
+        print(FirebaseAuth.instance.currentUser);
+        return TheHomePage();
+      }
+    }
+    return HomeScreen();
+  }
+}

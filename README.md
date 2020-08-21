@@ -1,6 +1,6 @@
-# launmax_app
+# launmax
 
-Launmax application | An app that provides on-demand laundry service
+A new Flutter project.
 
 ## Getting Started
 

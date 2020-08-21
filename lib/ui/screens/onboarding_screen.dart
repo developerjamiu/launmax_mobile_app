@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:launmax_app/homeScreen/homeScreen.dart';
+import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/ui/screens/homeScreen.dart';
+import 'package:launmax_app/ui/screens/signup/signup_screen.dart';
 
-import '../widgets/custom_raised_button.dart';
+import '../widgets/app_raised_button.dart';
 import '../widgets/page_indicator.dart';
 import '../widgets/page_view_items.dart';
 
@@ -33,6 +35,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     });
   }
 
+  bool isLastPage() => pages.length != currentIndex + 1;
+
   List<Widget> pages = <Widget>[
     PageViewItems(
       assetImagePath: 'assets/images/wash.png',
@@ -55,20 +59,30 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   ];
 
   void navigateToNextPage() {
+    setState(() {
+      _pageController.animateToPage(currentIndex + 1,
+          duration: Duration(milliseconds: 400), curve: Curves.linear);
+    });
+  }
+
+  void getStarted() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HomeScreen()),
+      MaterialPageRoute(builder: (_) => SignupScreen()),
     );
+  }
+
+  void navigateToLastPage() {
+    setState(() {
+      _pageController.animateToPage(pages.length + 1,
+          duration: Duration(milliseconds: 600), curve: Curves.linear);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    double safeArea = MediaQuery.of(context).padding.top +
-        MediaQuery.of(context).padding.bottom;
-    double screenHeight = MediaQuery.of(context).size.height;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.black,
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
@@ -77,48 +91,50 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         body: SafeArea(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Stack(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Positioned(
-                  right: 0,
-                  top: 16,
-                  child: InkWell(
-                    onTap: navigateToNextPage,
-                    child: Text(
-                      'SKIP',
-                      style: TextStyle(
-                        color: Color(0xFF135A59),
-                        fontSize: 16.0,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: isLastPage()
+                      ? InkWell(
+                          onTap: navigateToLastPage,
+                          child: Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text(
+                              'SKIP',
+                              style: TextStyle(
+                                color: AppColor.primaryColor,
+                                fontSize: 15.0,
+                              ),
+                            ),
+                          ),
+                        )
+                      : SizedBox(height: 40),
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      height: 357,
+                      child: PageView(
+                        onPageChanged: onChangedFunction,
+                        controller: _pageController,
+                        children: pages,
                       ),
                     ),
-                  ),
+                    PageIndicator(currentIndex: currentIndex),
+                  ],
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    height: 400,
-                    child: PageView(
-                      onPageChanged: onChangedFunction,
-                      controller: _pageController,
-                      children: pages,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: (screenHeight / 3.5) - safeArea,
-                  right: 0,
-                  left: 0,
-                  child: PageIndicator(currentIndex: currentIndex),
-                ),
-                Positioned(
-                  bottom: (screenHeight / 9) - safeArea,
-                  right: 0,
-                  left: 0,
-                  child: CustomRaisedButton(
-                    label: 'Get Started',
-                    onPressed: navigateToNextPage,
-                  ),
-                ),
+                isLastPage()
+                    ? AppRaisedButton(
+                        text: 'Next',
+                        onPressed: navigateToNextPage,
+                      )
+                    : AppRaisedButton(
+                        text: 'Get Started',
+                        onPressed: getStarted,
+                      ),
               ],
             ),
           ),

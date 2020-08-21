@@ -16,14 +16,14 @@ class PageViewItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(
           assetImagePath,
           width: 237,
-          height: 174,
+          height: 150,
         ),
-        SizedBox(height: 30.0),
         Text(
           title,
           textAlign: TextAlign.center,
@@ -33,7 +33,6 @@ class PageViewItems extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 30.0),
         Text(
           description,
           textAlign: TextAlign.center,
