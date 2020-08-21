@@ -34,9 +34,12 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           title: 'LaunMax',
           theme: ThemeData(
-              primarySwatch: AppColor.primaryColor,
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-              scaffoldBackgroundColor: AppColor.background),
+            primarySwatch: AppColor.primaryColor,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            scaffoldBackgroundColor: AppColor.background,
+            textTheme: Typography.blackCupertino
+                .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
+          ),
           home: ScreenController()
           //MyHomePage(title: 'Flutter Demo Home Page'),
           ),

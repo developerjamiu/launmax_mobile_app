@@ -38,7 +38,7 @@ class _ScreenControllerState extends State<ScreenController> {
       if (FirebaseAuth.instance.currentUser == null) {
         // No User, show OnBoarding
         print(FirebaseAuth.instance.currentUser);
-        return OnBoardingScreen();
+        return HomeScreen();
       }
     }
     return HomeScreen();
