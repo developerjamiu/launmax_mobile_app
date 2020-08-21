@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:launmax_app/UI/bottomNav.dart';
+import 'package:launmax_app/UI/screens/signIn/res.dart';
+
 
 final user = "John";
 
@@ -7,62 +11,34 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 6,
-        items: [
-          BottomNavigationBarItem(
-            title: Text(
-              'Home',
-              style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff135A59)),
-            ),
-            icon: Image.asset(
-              'assets/images/home.png', color: Colors.black45,
-              height: 15,
-              width: 15,
-            ),
-          ),
-          BottomNavigationBarItem(
-            title: Text(
-              'Profile',
-              style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.normal,
-                  color: Color(0xff135A59)),
-            ),
-            icon: Image.asset(
-              'assets/images/pro.png', 
-              height: 15,
-              width: 15,
-            ),
-          ),
-        ],
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+                'Good Morning, $user!',
+                style: TextStyle(
+                    fontSize: McGyver.textSize(context, 2),
+                    fontWeight: FontWeight.w300,
+                    color: Color(0xFFA7A7A7)),
+              ),
+        ),
       ),
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.only(left: 29.0, right: 29),
-        child: ListView(
-          children: <Widget>[
-            SizedBox(height: 40),
-            Text(
-              'Good Morning, $user!',
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                  color: Color(0xFFA7A7A7)),
-            ),
-            SizedBox(height: 10),
-            Row(
+      body: ListView(
+        children: <Widget>[
+          Padding(
+           padding: const EdgeInsets.only(left: 29.0, right: 29),
+            child: Row(
               children: [
                 Text('What do you want to do today?',
                     style: TextStyle(
-                        fontSize: 16,
+                         fontSize: McGyver.textSize(context, 2.4),
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF130A38))),
                 SizedBox(
-                  width: 20,
+                  width: McGyver.rsDoubleW(context, 3),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.white,
@@ -70,68 +46,107 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 40),
-            Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
+          ),
+         SizedBox(height: McGyver.rsDoubleH(context, 1.4),),
+          Container(
+            decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(width: 2.0, color: Color(0xfff9f9f9)),
+                  )
+                ),
+            child: Padding(
+               padding: const EdgeInsets.only(top:32,left: 29.0, right: 29),
+              child: Row(
+                children: [
+                  Container(
+                     decoration: BoxDecoration(
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                        color: Color(0xfff6f6f6),
-                        blurRadius: 30,
-                        spreadRadius: 14,
-                        offset: Offset(0, 9),
+                        color: Colors.grey.shade300,
+                        blurRadius: 10,
+                        spreadRadius: 4,
+                        offset: Offset(0, 7),
                       ),
                     ],
                   ),
-                  child: MyCards(
-                    heading: "Request Pick up",
-                    color: Colors.white,
-                    image: 'assets/images/delivery2.png',
-                    tap: null,
+                    child: MyCards(
+                      heading: "Request Pick up",
+                      color: Colors.white,
+                      image: 'assets/images/delivery2.svg',
+                      tap: null,
+                    ),
                   ),
-                ),
-                SizedBox(width: 15),
-                MyCards(
-                  heading: "Schedule Pick up",
-                  color: Colors.white,
-                  image: 'assets/images/calendar.png',
-                  tap: null,
-                ),
-              ],
+                  SizedBox(width: McGyver.rsDoubleW(context, 7)),
+                  Container(
+                    decoration: BoxDecoration(
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        color: Colors.grey.shade300,
+                        blurRadius: 10,
+                        spreadRadius: 4,
+                        offset: Offset(0, 7),
+                      ),
+                    ],
+                  ),
+                    child: MyCards(
+                      heading: "Schedule Pick up",
+                      color: Colors.white,
+                      image: 
+                        'assets/images/calendar.svg',
+                      tap: null,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 40),
-            Row(
+          ),
+          SizedBox(height: McGyver.rsDoubleH(context, 6)),
+          Padding(
+            padding: const EdgeInsets.only(left: 29.0, right: 29),
+            child: Row(
               children: [
                 Container(
                   decoration: BoxDecoration(
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                        color: Color(0xfff6f6f6),
-                        blurRadius: 30,
-                        spreadRadius: 14,
-                        offset: Offset(0, 9),
+                        color: Colors.grey.shade300,
+                        blurRadius: 10,
+                        spreadRadius: 4,
+                        offset: Offset(0, 7),
                       ),
                     ],
                   ),
                   child: MyCards(
                     heading: "View Pricing",
                     color: Colors.white,
-                    image: 'assets/images/naira.png',
+                    image: 'assets/images/naira.svg',
                     tap: null,
                   ),
                 ),
-                SizedBox(width: 15),
-                MyCards(
-                  heading: "Track Order",
-                  color: Colors.white,
-                  image: 'assets/images/delivery.png',
-                  tap: null,
+              SizedBox(width: McGyver.rsDoubleW(context, 7)),
+                Container(
+                   
+                     decoration: BoxDecoration(
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        color: Colors.grey.shade300,
+                        blurRadius: 10,
+                        spreadRadius: 4,
+                        offset: Offset(0.0, 7),
+                      ),
+                    ],
+                  ),
+                  child: MyCards(
+                    heading: "Track Order",
+                    color: Colors.white,
+                    image: 'assets/images/delivery.svg',
+                    tap: null,
+                  ),
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -154,10 +169,15 @@ class MyCards extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(20),
       onTap: tap,
-      child: Card(
-        elevation: 6,
-        color: color,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      child: Container(
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.only(
+             bottomRight: Radius.circular(10),
+            bottomLeft: Radius.circular(10),
+            topLeft: Radius.zero,
+            topRight: Radius.zero)
+        ),
         child: Stack(
           children: <Widget>[
             Padding(
@@ -170,15 +190,15 @@ class MyCards extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           top: 8.0, right: 60, bottom: 20),
                       child: Container(
-                        width: 42,
-                        child: Image(image: AssetImage(image), width: 15),
+                        width: McGyver.rsDoubleW(context, 12),
+                        child: SvgPicture.asset(image),
                       ),
                     ),
                     Center(
                       child: Text(
                         heading,
                         style: TextStyle(
-                          fontSize: 10,
+                          fontSize: McGyver.textSize(context, 1.7),
                           fontFamily: 'SFProDisplay-Medium-1',
                           fontWeight: FontWeight.w500,
                           color: Color(0xff000000),
@@ -186,7 +206,7 @@ class MyCards extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 12,
+                      height: McGyver.rsDoubleH(context, 1),
                     ),
                   ]),
             ),

@@ -3,11 +3,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:launmax_app/UI/signIn/colors.dart';
-import 'package:launmax_app/UI/signIn/res.dart';
-import 'package:launmax_app/UI/signIn/signinViewModel.dart';
-import 'package:launmax_app/UI/signIn/textfields.dart';
-import 'package:launmax_app/UI/signIn/validators.dart';
+import 'package:launmax_app/UI/screens/signIn/colors.dart';
+import 'package:launmax_app/UI/screens/signIn/res.dart';
+import 'package:launmax_app/UI/screens/signIn/signinViewModel.dart';
+import 'package:launmax_app/UI/screens/signIn/textfields.dart';
+import 'package:launmax_app/UI/screens/signIn/validators.dart';
+
 import 'package:launmax_app/ui/screens/homeScreen.dart';
 import 'package:provider/provider.dart';
 

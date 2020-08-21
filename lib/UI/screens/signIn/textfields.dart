@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:launmax_app/UI/signIn/res.dart';
-import 'package:launmax_app/UI/signIn/signinViewModel.dart';
+import 'package:launmax_app/UI/screens/signIn/res.dart';
+import 'package:launmax_app/UI/screens/signIn/signinViewModel.dart';
+
 
 class SigninTextField extends StatefulWidget {
   final String text;
