@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      
       backgroundColor: Colors.white,
       body: ListView(
         children: <Widget>[
