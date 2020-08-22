@@ -7,7 +7,6 @@ import 'package:launmax_app/models/orders.dart';
 import '../../../styles.dart';
 
 class TrackOrder extends StatelessWidget {
-  var concatenate = StringBuffer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
