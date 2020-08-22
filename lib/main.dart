@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:launmax_app/UI/bottomNav.dart';
-import 'package:launmax_app/UI/screens/homeScreen.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
@@ -36,6 +34,9 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           title: 'LaunMax',
           theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              color: Colors.white,
+            ),
             primarySwatch: AppColor.primaryColor,
             visualDensity: VisualDensity.adaptivePlatformDensity,
             scaffoldBackgroundColor: AppColor.background,
