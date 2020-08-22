@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
             textTheme: Typography.blackCupertino
                 .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
           ),
-          home: TheHomePage()
+          home: ScreenController()
           //MyHomePage(title: 'Flutter Demo Home Page'),
           ),
     );
