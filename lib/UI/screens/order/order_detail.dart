@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:launmax_app/models/orders.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../styles.dart';
 
@@ -48,7 +49,7 @@ class OrderDetail extends StatelessWidget {
                           color: order.statusColor,
                         ),
                         Text(order.status,
-                            style: TextStyle(color: order.statusColor)),
+                            style: TextStyle(color: order.statusColor,fontSize: 13)),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.06),
                         Text("$newDate"),
@@ -65,14 +66,14 @@ class OrderDetail extends StatelessWidget {
                         Text(
                           "Order No̲${order.orderNo}",
                           style: TextStyle(
-                              fontSize: 25.0, color: AppColor.primaryColor),
+                              fontSize: 22.0, color: AppColor.primaryColor),
                         ),
-                         SizedBox(height:5.2 ),
+                        SizedBox(height: 5.2),
                         Row(
                           children: [
                             Text('item: ',
                                 style: TextStyle(
-                                    fontSize: 17.0, color: Colors.grey[300])),
+                                    fontSize: 15.0, color: Colors.grey[500])),
                             Expanded(
                               child: Text(
                                   '${order.items.reduce((v, e) => v + ',' + e)}',
@@ -113,7 +114,7 @@ class OrderDetail extends StatelessWidget {
                           Text(
                             "${order.quantity} pairs",
                             style: TextStyle(
-                                fontWeight: FontWeight.w900, fontSize: 20),
+                                fontWeight: FontWeight.w900, fontSize: 15),
                           )
                         ],
                       ),
@@ -129,7 +130,7 @@ class OrderDetail extends StatelessWidget {
                     children: [
                       Text(
                         'DELIVERY DETAILS\n',
-                        style: TextStyle(color: Colors.grey[500], fontSize: 20),
+                        style: TextStyle(color: Colors.grey[500], fontSize: 18),
                       ),
                       Text('Time: $newDate\n'),
                       Text('Address: ${order.deliveryAddress}'),
@@ -145,7 +146,7 @@ class OrderDetail extends StatelessWidget {
                     children: [
                       Text(
                         "DRY CLEANER'S DETAILS\n",
-                        style: TextStyle(color: Colors.grey[500], fontSize: 20),
+                        style: TextStyle(color: Colors.grey[500], fontSize: 18),
                       ),
                       Text('Company Name: ${order.companyName}\n'),
                       Text('Delivery Man: ${order.deliveryPersonel}'),
@@ -156,7 +157,12 @@ class OrderDetail extends StatelessWidget {
                             // color: Colors.red,
                             icon: Icon(Icons.phone), //`Icon` to display
                             label: Text('Call'), //`Text` to display
-                            onPressed: () {},
+                            onPressed: () async {
+                        print("tapped");
+                        var url = "${order.phoneNumber}";
+                        print(url);
+                        launch("tel://$url");
+                      },
                           ),
                         ],
                       ),
@@ -164,13 +170,17 @@ class OrderDetail extends StatelessWidget {
                   ),
                 ),
                 Divider(),
-                MaterialButton(onPressed: (){
-                  Navigator.pop(context);
-                },
-                color:AppColor.primaryColor[100],
-                minWidth:MediaQuery.of(context).size.width * 0.7,
-                height:MediaQuery.of(context).size.height * 0.06 ,
-                child: Text('Confirm collection',style: TextStyle(color:Color(0xFF6BBABD)),),
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  color: AppColor.primaryColor[100],
+                  minWidth: MediaQuery.of(context).size.width * 0.7,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  child: Text(
+                    'Confirm collection',
+                    style: TextStyle(color: Color(0xFF6BBABD)),
+                  ),
                 )
               ],
             )),

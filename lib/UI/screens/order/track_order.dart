@@ -55,7 +55,7 @@ class TrackOrder extends StatelessWidget {
                             ),
                             Text(order[index].status,
                                 style:
-                                    TextStyle(color: order[index].statusColor)),
+                                    TextStyle(color: order[index].statusColor,fontSize: 13)),
                             SizedBox(
                                 width:
                                     MediaQuery.of(context).size.width * 0.06),
@@ -75,7 +75,7 @@ class TrackOrder extends StatelessWidget {
                             Text(
                               "Order No̲${order[index].orderNo}",
                               style: TextStyle(
-                                  fontSize: 25.0, color: AppColor.primaryColor),
+                                  fontSize: 22.0, color: AppColor.primaryColor),
                             ),
                             SizedBox(height:5.2 ),
                             Row(
@@ -88,7 +88,7 @@ class TrackOrder extends StatelessWidget {
                                   child: Text(
                                       '${order[index].items.reduce((v, e) => v + ',' + e)}',
                                       style: TextStyle(
-                                          fontSize: 17.0,
+                                          fontSize: 15.0,
                                           color: AppColor.primaryColor[600])),
                                 ),
                               ],
@@ -106,11 +106,11 @@ class TrackOrder extends StatelessWidget {
                           Text(
                             "VALUE OF ITEMS ",
                             style: TextStyle(
-                                fontSize: 15, color: Colors.grey[500]),
+                                fontSize: 12, color: Colors.grey[500]),
                           ),
                           Text(
                             "NGN ${order[index].totalCost}",
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: TextStyle(fontWeight: FontWeight.w600,fontSize: 13),
                           ),
                           SizedBox(
                             width: 20,
@@ -118,12 +118,12 @@ class TrackOrder extends StatelessWidget {
                           Text(
                             "QUANTITY ",
                             style: TextStyle(
-                                fontSize: 15, color: Colors.grey[500]),
+                                fontSize: 12, color: Colors.grey[500]),
                           ),
                           Text(
                             "${order[index].quantity}",
                             style: TextStyle(
-                                fontWeight: FontWeight.w900, fontSize: 20),
+                                fontWeight: FontWeight.w900, fontSize: 14),
                           )
                         ],
                       ),
