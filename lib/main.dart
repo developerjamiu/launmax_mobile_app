@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
@@ -7,7 +9,11 @@ import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  //runApp(MyApp());
+  runApp(DevicePreview(
+    builder: (BuildContext context) => MyApp(),
+    enabled: kReleaseMode,
+  ));
 }
 
 class MyApp extends StatefulWidget {
