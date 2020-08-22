@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'package:launmax_app/UI/screens/order/track_order.dart';
+
 import 'package:launmax_app/ui/widgets/app_card.dart';
 
 import '../../../styles.dart';
@@ -74,7 +77,9 @@ class HomePage extends StatelessWidget {
         HomePageCard(
           text: "Track Order",
           iconPath: 'assets/images/delivery2.svg',
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_)=> TrackOrder()));
+          },
         ),
       ],
     );
