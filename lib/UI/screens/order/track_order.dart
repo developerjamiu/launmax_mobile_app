@@ -14,12 +14,18 @@ class TrackOrder extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
+        centerTitle: true,
         backgroundColor: Colors.white,
-        // leading: Row(
-        //     children: [Icon(Icons.arrow_back_ios), SizedBox(), Text('Back')]),
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () => Navigator.pop(context)),
         title: Text(
           'Track Order',
-          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30),
+          style: TextStyle(
+              fontWeight: FontWeight.w600, fontSize: 20, color: Colors.black),
         ),
       ),
       body: ListView.builder(
@@ -30,7 +36,10 @@ class TrackOrder extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>OrderDetail(order:order[index]))),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => OrderDetail(order: order[index]))),
                 child: Card(
                   elevation: 3.9,
                   child: Column(children: [
@@ -73,7 +82,7 @@ class TrackOrder extends StatelessWidget {
                                 Text('item: ',
                                     style: TextStyle(
                                         fontSize: 17.0,
-                                        color: Colors.grey[300])),
+                                        color: Colors.grey[500])),
                                 Expanded(
                                   child: Text(
                                       '${order[index].items.reduce((v, e) => v + ',' + e)}',
@@ -95,7 +104,7 @@ class TrackOrder extends StatelessWidget {
                           Text(
                             "VALUE OF ITEMS ",
                             style: TextStyle(
-                                fontSize: 15, color: Colors.grey[400]),
+                                fontSize: 15, color: Colors.grey[500]),
                           ),
                           Text(
                             "NGN ${order[index].totalCost}",
@@ -107,7 +116,7 @@ class TrackOrder extends StatelessWidget {
                           Text(
                             "QUANTITY ",
                             style: TextStyle(
-                                fontSize: 15, color: Colors.grey[400]),
+                                fontSize: 15, color: Colors.grey[500]),
                           ),
                           Text(
                             "${order[index].quantity}",
