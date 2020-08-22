@@ -72,7 +72,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   void navigateToLastPage() {
     setState(() {
-      _pageController.animateToPage(pages.length + 1,
+      _pageController.animateToPage(pages.length - 1,
           duration: Duration(milliseconds: 600), curve: Curves.linear);
     });
   }
@@ -86,51 +86,51 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.topRight,
-                  child: isLastPage()
-                      ? InkWell(
-                          onTap: navigateToLastPage,
-                          child: Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Text(
-                              'SKIP',
-                              style: TextStyle(
-                                color: AppColor.primaryColor,
-                                fontSize: 15.0,
-                              ),
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topRight,
+                child: isLastPage()
+                    ? InkWell(
+                        onTap: navigateToLastPage,
+                        child: Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'SKIP',
+                            style: TextStyle(
+                              color: AppColor.primaryColor,
+                              fontSize: 15.0,
                             ),
                           ),
-                        )
-                      : SizedBox(height: 40),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      height: 357,
-                      child: PageView(
-                        onPageChanged: onChangedFunction,
-                        controller: _pageController,
-                        children: pages,
-                      ),
-                    ),
-                    PageIndicator(currentIndex: currentIndex),
-                  ],
-                ),
-                isLastPage()
-                    ? AppRaisedButton(
-                        text: 'Next',
-                        onPressed: navigateToNextPage,
+                        ),
                       )
-                    : Column(
+                    : SizedBox(height: 40),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    height: 357,
+                    child: PageView(
+                      onPageChanged: onChangedFunction,
+                      controller: _pageController,
+                      children: pages,
+                    ),
+                  ),
+                  PageIndicator(currentIndex: currentIndex),
+                ],
+              ),
+              isLastPage()
+                  ? AppRaisedButton(
+                      text: 'Next',
+                      onPressed: navigateToNextPage,
+                    )
+                  : Flexible(
+                      child: ListView(
+                        shrinkWrap: true, // use it
                         children: [
                           AppRaisedButton(
                             text: 'Sign in with Google',
@@ -160,8 +160,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ),
                         ],
                       ),
-              ],
-            ),
+                    ),
+            ],
           ),
         ),
       ),
