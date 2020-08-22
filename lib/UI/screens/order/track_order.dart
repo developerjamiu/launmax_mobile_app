@@ -101,6 +101,7 @@ class TrackOrder extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(12.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "VALUE OF ITEMS ",
