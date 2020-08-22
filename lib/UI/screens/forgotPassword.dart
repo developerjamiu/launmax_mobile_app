@@ -21,7 +21,7 @@ class ForgotPassword extends StatelessWidget {
         backgroundColor: Colors.white,
         leading: GestureDetector(
           onTap: () {},
-          child: Image.asset('assets/images/Vector.png'),
+          child: Icon(Icons.clear),
         ),
         actions: [
           FlatButton(
