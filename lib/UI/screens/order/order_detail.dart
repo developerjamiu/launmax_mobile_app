@@ -67,6 +67,7 @@ class OrderDetail extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 25.0, color: AppColor.primaryColor),
                         ),
+                         SizedBox(height:5.2 ),
                         Row(
                           children: [
                             Text('item: ',
@@ -161,6 +162,15 @@ class OrderDetail extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+                Divider(),
+                MaterialButton(onPressed: (){
+                  Navigator.pop(context);
+                },
+                color:AppColor.primaryColor[100],
+                minWidth:MediaQuery.of(context).size.width * 0.7,
+                height:MediaQuery.of(context).size.height * 0.06 ,
+                child: Text('Confirm collection',style: TextStyle(color:Color(0xFF6BBABD)),),
                 )
               ],
             )),

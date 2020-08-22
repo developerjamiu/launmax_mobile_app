@@ -13,6 +13,7 @@ class Order {
   String status;
   Color statusColor;
   IconData statusIcon;
+  bool delivered = false;
 
   Order({
     this.orderNo,
@@ -26,7 +27,8 @@ class Order {
     this.phoneNumber,
     this.status,
     this.statusColor,
-    this.statusIcon,
+    this.statusIcon, 
+    this.delivered,
   });
 }
 
@@ -44,6 +46,7 @@ List<Order> order = [
       status: 'ON OUR WAY',
       statusColor: Colors.red[300],
       statusIcon: Icons.access_time,
+      delivered:false,
       ),
       
 
@@ -60,6 +63,7 @@ List<Order> order = [
       status: 'IN PROGRESS',
       statusColor: Colors.orange[400],
       statusIcon: Icons.access_time,
+      delivered:false,
       ),
 
   Order(
@@ -75,5 +79,6 @@ List<Order> order = [
       status: 'DELIVERED',
       statusColor: Colors.green[300],
       statusIcon: Icons.check,
+      delivered:true,
       ),
 ];

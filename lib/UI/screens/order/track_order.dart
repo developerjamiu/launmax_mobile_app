@@ -77,6 +77,7 @@ class TrackOrder extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 25.0, color: AppColor.primaryColor),
                             ),
+                            SizedBox(height:5.2 ),
                             Row(
                               children: [
                                 Text('item: ',
