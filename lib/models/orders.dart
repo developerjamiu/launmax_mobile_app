@@ -7,6 +7,7 @@ class Order {
   DateTime dateTime;
   int totalCost;
   String deliveryAddress;
+  String deliveryPersonel;
   String companyName;
   int phoneNumber;
   String status;
@@ -20,6 +21,7 @@ class Order {
     this.dateTime,
     this.totalCost,
     this.deliveryAddress,
+    this.deliveryPersonel,
     this.companyName,
     this.phoneNumber,
     this.status,
@@ -32,6 +34,7 @@ List<Order> order = [
   Order(
       companyName: 'So-white laundry',
       deliveryAddress: 'Agege, Lagos',
+      deliveryPersonel:'Buhari Muhammed',
       items: ['Agbada','jugoola', 'gown','Buba and Sokoto', 'Suit'],
       orderNo: 1947034,
       phoneNumber: 2348085657265,
@@ -47,6 +50,7 @@ List<Order> order = [
   Order(
       companyName: 'So-white laundry',
       deliveryAddress: 'Agege, Lagos',
+      deliveryPersonel:'Buhari Muhammed',
       items: ['Agbada','Buba and Sokoto', 'Suit'],
       orderNo: 1947034,
       phoneNumber: 2348085657265,
@@ -61,6 +65,7 @@ List<Order> order = [
   Order(
       companyName: 'So-white laundry',
       deliveryAddress: 'Agege, Lagos',
+      deliveryPersonel:'Buhari Muhammed',
       items: ['Agbada','Buba and Sokoto', 'Suit'],
       orderNo: 1947034,
       phoneNumber: 2348085657265,
