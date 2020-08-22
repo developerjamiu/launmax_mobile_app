@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:launmax_app/ui/screens/homeScreen.dart';
+import 'package:launmax_app/ui/screens/homeScreen/home_screen.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:provider/provider.dart';
 

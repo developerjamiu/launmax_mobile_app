@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
+  static const text2 = Color(0xFF787676);
+
   static const background = Color(0xFFFAFAFA);
 
   static const offset = Color(0x14323247);
+
+  static const neutralBlack = Color(0xFF151522);
 
   static const primaryColor = MaterialColor(
     _primaryValue,
