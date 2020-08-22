@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:launmax_app/ui/widgets/app_card.dart';
 
 import '../../../styles.dart';
 
@@ -23,22 +24,22 @@ class HomePage extends StatelessWidget {
 
   static buildBottomComponent() {
     return PreferredSize(
-      preferredSize: Size.fromHeight(40),
+      preferredSize: Size.fromHeight(70),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(17, 0, 14, 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'What do you want to do today?',
+              'What do you want \nto do today?',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: AppColor.neutralBlack,
               ),
             ),
             CircleAvatar(
-              backgroundColor: Colors.black,
+              backgroundColor: Colors.white,
               backgroundImage: AssetImage('assets/images/avatar.png'),
             )
           ],
@@ -89,39 +90,34 @@ class HomePageCard extends StatelessWidget {
     Key key,
     this.text,
     this.iconPath,
-    this.color = Colors.white,
+    this.color,
     this.onTap,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(20),
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.all(Radius.circular(16)),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, 16),
-              blurRadius: 16,
-              color: AppColor.offset,
-            )
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 14),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SvgPicture.asset(iconPath),
-              Text(
-                text,
-                style:
-                    TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
-              ),
-            ],
+    return AppCard(
+      radius: 16.0,
+      blurRadius: 16.0,
+      color: Colors.white,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: onTap,
+        child: Material(
+          color: Colors.transparent,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SvgPicture.asset(iconPath),
+                Text(
+                  text,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500, color: Colors.black),
+                ),
+              ],
+            ),
           ),
         ),
       ),
