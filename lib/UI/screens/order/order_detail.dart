@@ -130,7 +130,7 @@ class OrderDetail extends StatelessWidget {
                     children: [
                       Text(
                         'DELIVERY DETAILS\n',
-                        style: TextStyle(color: Colors.grey[500], fontSize: 18),
+                        style: TextStyle(color: Colors.grey[500], fontSize: 15),
                       ),
                       Text('Time: $newDate\n'),
                       Text('Address: ${order.deliveryAddress}'),
@@ -146,7 +146,7 @@ class OrderDetail extends StatelessWidget {
                     children: [
                       Text(
                         "DRY CLEANER'S DETAILS\n",
-                        style: TextStyle(color: Colors.grey[500], fontSize: 18),
+                        style: TextStyle(color: Colors.grey[500], fontSize: 15),
                       ),
                       Text('Company Name: ${order.companyName}\n'),
                       Text('Delivery Man: ${order.deliveryPersonel}'),
