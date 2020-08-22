@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:launmax_app/UI/bottomNav.dart';
 import 'package:launmax_app/UI/screens/signIn/res.dart';
 
+import 'order/track_order.dart';
+
 final user = "John";
 
 class HomeScreen extends StatelessWidget {
@@ -24,7 +26,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      
       backgroundColor: Colors.white,
       body: ListView(
         children: <Widget>[
@@ -139,7 +140,8 @@ class HomeScreen extends StatelessWidget {
                     heading: "Track Order",
                     color: Colors.white,
                     image: 'assets/images/delivery.svg',
-                    tap: null,
+                    tap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => TrackOrder())),
                   ),
                 ),
               ],
