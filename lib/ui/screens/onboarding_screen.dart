@@ -86,6 +86,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
