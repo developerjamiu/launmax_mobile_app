@@ -7,8 +7,11 @@ class AppColor {
 
   static const divider = Color(0x33E4E4E4);
 
+  static const stroke = Color(0x99E4E4E4);
+
   static const background = Color(0xFFFAFAFA);
 
+  /// Same as rgba(50, 50, 71, 0.08)
   static const offset = Color(0x14323247);
 
   static const neutralBlack = Color(0xFF151522);
