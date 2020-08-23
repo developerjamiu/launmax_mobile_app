@@ -43,6 +43,9 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             appBarTheme: AppBarTheme(
               color: Colors.white,
+              iconTheme: IconThemeData(color: Colors.black),
+              actionsIconTheme: IconThemeData(color: Colors.black),
+              brightness: Brightness.light, // status bar brightness
             ),
             primarySwatch: AppColor.primaryColor,
             visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:launmax_app/styles.dart';
 
 import '../../constant.dart';
 import '../../utils/cards_enum.dart';
@@ -9,29 +10,33 @@ class CardsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: CupertinoNavigationBar(
         backgroundColor: Colors.white,
-        leading: InkWell(
-          child: Row(
-            children: [
-              Icon(
-                Icons.arrow_back_ios,
-                size: 16,
-                color: Colors.black,
-              ),
-              SizedBox(width: 8.0),
-              Text(
-                'Back',
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
+        leading: Center(
+          child: FlatButton(
+            padding: EdgeInsets.all(0),
+            child: Row(
+              children: [
+                Icon(
+                  CupertinoIcons.back,
+                  size: 16,
                   color: Colors.black,
-                  fontSize: 16,
                 ),
-              ),
-            ],
+                SizedBox(width: 8.0),
+                Text(
+                  'Back',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
-          onTap: () {},
         ),
         middle: Text(
           'Cards',
@@ -96,13 +101,13 @@ class AddCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        height: 180,
+        height: 184,
         margin: margin,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.black12),
-          boxShadow: kBoxShadow,
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(color: AppColor.stroke),
+          boxShadow: [kDropShadow(0, 12, 12), kDropShadow(0, 16, 24)],
         ),
         child: Center(
           child: Column(
@@ -114,12 +119,12 @@ class AddCard extends StatelessWidget {
                 size: 72,
                 color: Color(0xff41A393),
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 24.3),
               Text(
                 text,
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.black,
+                  color: AppColor.primaryColor,
                 ),
               ),
             ],
