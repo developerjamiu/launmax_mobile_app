@@ -22,9 +22,11 @@ class Checkout extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
               Text(
-                'DELIVERY DETAILS\n',
+                'Collection DETAILS',
                 style: TextStyle(color: Colors.grey[500], fontSize: 15),
               ),
               MaterialButton(

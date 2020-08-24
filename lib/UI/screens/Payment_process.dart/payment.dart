@@ -18,7 +18,7 @@ class Payment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isPayment) {
+    if (isPayment != true) {
       return Container(
           child: Center(
               child: Column(children: [
@@ -30,43 +30,49 @@ class Payment extends StatelessWidget {
           'You can add and edit payments during checkout',
           style: TextStyle(color: Colors.grey[500]),
         ),
-        Positioned(
-            child: InkWell(
-          borderRadius: BorderRadius.circular(8),
-          onTap: () {},
-          child: Container(
-            width: double.infinity,
-            height: 184,
-            margin: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 40.0),
-            decoration: BoxDecoration(
-              // color: color,
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: AppColor.stroke),
-              boxShadow: [kDropShadow(0, 12, 12), kDropShadow(0, 16, 24)],
-            ),
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.add_circle_outline,
-                    size: 72,
-                    color: Color(0xff41A393),
+        Expanded(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Card(
+              elevation: 9.9,
+                child: InkWell(
+              borderRadius: BorderRadius.circular(8),
+              onTap: () {},
+              child: Container(
+                width: double.infinity,
+                height: 184,
+                margin: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 40.0),
+                decoration: BoxDecoration(
+                  // color: color,
+                  borderRadius: BorderRadius.circular(5),
+                  // border: Border.all(color: AppColor.stroke),
+                  // boxShadow: [kDropShadow(0, 12, 12), kDropShadow(0, 16, 24)],
+                ),
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.add_circle_outline,
+                        size: 72,
+                        color: Color(0xff41A393),
+                      ),
+                      SizedBox(height: 24.3),
+                      Text(
+                        'Add Payment Method',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: AppColor.primaryColor,
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 24.3),
-                  Text(
-                    'Add Payment Method',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: AppColor.primaryColor,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+            )),
           ),
-        ))
+        )
       ])));
       //////////////
       ///ELSE
