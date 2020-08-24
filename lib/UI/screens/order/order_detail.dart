@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:launmax_app/UI/screens/Payment_process.dart/payment_process.dart';
 import 'package:launmax_app/models/orders.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -172,7 +173,9 @@ class OrderDetail extends StatelessWidget {
                 Divider(),
                 MaterialButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
+
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>PaymentProcess(order:order)));
                   },
                   color: AppColor.primaryColor[100],
                   minWidth: MediaQuery.of(context).size.width * 0.7,
