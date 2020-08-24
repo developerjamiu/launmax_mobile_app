@@ -1,9 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/stepper_info.dart';
 import 'package:launmax_app/models/orders.dart';
-import 'package:provider/provider.dart';
 
 class Checkout extends StatelessWidget {
     final CarouselController carouselController;

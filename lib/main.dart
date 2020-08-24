@@ -1,10 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/stepper_info.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/screens/cards_screen.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
@@ -34,9 +32,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (context) => AppState(),
         ),
-        ChangeNotifierProvider(
-          create: (context) => StepperInfo(),
-        ),
+     
         ChangeNotifierProvider(
           create: (_) => SigninViewModel(),
         ),
