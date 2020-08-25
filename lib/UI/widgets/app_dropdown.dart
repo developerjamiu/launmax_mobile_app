@@ -4,7 +4,6 @@ class AppDropdown extends StatelessWidget {
   final List<String> items;
   final String text;
   final String value;
-  final String hintText;
   final void Function(String) onChanged;
   final String Function(String) validator;
 
@@ -13,7 +12,6 @@ class AppDropdown extends StatelessWidget {
     @required this.text,
     this.items,
     this.value,
-    this.hintText,
     this.onChanged,
     this.validator,
   }) : super(key: key);

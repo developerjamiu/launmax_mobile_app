@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:launmax_app/models/card_model.dart';
 import 'package:launmax_app/styles.dart';
 
-import '../../constant.dart';
-import '../widgets/credit_card.dart';
+import '../../../constant.dart';
+import '../../widgets/credit_card.dart';
 
 /// To switch between Cards and No Cards Screen
 /// Go to Card Model and uncomment to Card Models
@@ -17,7 +17,6 @@ class CardsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.background,
       appBar: CupertinoNavigationBar(
         backgroundColor: Colors.white,
         leading: Center(
