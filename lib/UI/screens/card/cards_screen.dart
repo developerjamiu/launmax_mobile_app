@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:launmax_app/models/card_model.dart';
 import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/ui/screens/card/new_card_screen.dart';
 
 import '../../../constant.dart';
 import '../../widgets/credit_card.dart';
@@ -108,7 +109,13 @@ class CardsScreen extends StatelessWidget {
               margin: EdgeInsets.only(
                   left: 16.0, right: 16.0, bottom: 40.0, top: 16.0),
               iconData: Icons.add_circle_outline,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => NewCardScreen(),
+                  ),
+                );
+              },
               text: 'Add New Card',
             ),
           ],

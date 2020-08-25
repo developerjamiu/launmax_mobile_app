@@ -247,16 +247,39 @@ class _NewCardScreenState extends State<NewCardScreen> {
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Card(
-                      elevation: 8,
-                      child: AnimatedContainer(
-                        padding: EdgeInsets.all(8),
-                        duration: Duration(milliseconds: 400),
-                        height: _cardSelected == path ? 70 : 50,
-                        child: SvgPicture.asset(
-                          path,
+                    child: Stack(
+                      children: [
+                        Card(
+                          elevation: 8,
+                          child: AnimatedContainer(
+                            padding: EdgeInsets.all(8),
+                            duration: Duration(milliseconds: 400),
+                            height: _cardSelected == path ? 70 : 50,
+                            width: MediaQuery.of(context).size.width / 4,
+                            child: SvgPicture.asset(
+                              path,
+                            ),
+                          ),
                         ),
-                      ),
+                        _cardSelected == path
+                            ? Positioned(
+                                bottom: -2,
+                                right: -3,
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.black12,
+                                  radius: 13,
+                                  child: CircleAvatar(
+                                    radius: 12,
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.check_circle,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : Container(),
+                      ],
                     ),
                   ),
                 ),
