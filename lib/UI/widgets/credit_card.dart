@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:launmax_app/constant.dart';
 
+import '../../styles.dart';
 import '../../utils/cards_enum.dart';
 
 class CreditCard extends StatelessWidget {
@@ -26,9 +27,9 @@ class CreditCard extends StatelessWidget {
       height: 220,
       margin: margin,
       decoration: BoxDecoration(
-        color: Color(0xFF135A59),
+        color: AppColor.primaryColor,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: kBoxShadow,
+        boxShadow: [kDropShadow(0, 16, 16), kDropShadow(0, 24, 32)],
       ),
       child: Stack(
         alignment: Alignment.bottomCenter,

@@ -78,7 +78,8 @@ class HomePage extends StatelessWidget {
           text: "Track Order",
           iconPath: 'assets/images/delivery2.svg',
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_)=> TrackOrder()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => TrackOrder()));
           },
         ),
       ],

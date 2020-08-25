@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:launmax_app/constant.dart';
 
 import '../../styles.dart';
 
@@ -21,13 +22,7 @@ class AppCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.all(Radius.circular(radius)),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, blurRadius),
-            blurRadius: blurRadius,
-            color: AppColor.offset,
-          )
-        ],
+        boxShadow: [kDropShadow(0, blurRadius, blurRadius)],
       ),
       child: child,
     );
