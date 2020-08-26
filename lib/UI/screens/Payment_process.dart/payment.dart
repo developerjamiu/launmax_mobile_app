@@ -5,6 +5,7 @@ import 'package:launmax_app/models/orders.dart';
 
 import '../../../constant.dart';
 import '../../../styles.dart';
+import 'add_payment.dart';
 
 class Payment extends StatelessWidget {
   final CarouselController carouselController;
@@ -13,9 +14,9 @@ class Payment extends StatelessWidget {
 
   Payment({this.carouselController, this.index, this.order});
 
-  final bool isPayment = true;
+  final bool isPayment = false;
 
-  final double delivery_fee = 100.00;
+  static const double delivery_fee = 100.00;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,9 @@ class Payment extends StatelessWidget {
                         elevation: 9.9,
                         child: InkWell(
                           borderRadius: BorderRadius.circular(8),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,MaterialPageRoute(builder: (_) => AddPayment()));
+                          },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.68,
                             height: 184,
