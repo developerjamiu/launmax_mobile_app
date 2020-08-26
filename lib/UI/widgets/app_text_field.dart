@@ -4,7 +4,9 @@ class AppTextField extends StatelessWidget {
   final String label;
   final String hintText;
   final bool obscureText;
+  final int maxLines;
   final TextEditingController controller;
+  final Widget suffixIcon;
   final void Function(String) onChanged;
   final String Function(String) validator;
   final TextInputType keyboardType;
@@ -14,7 +16,9 @@ class AppTextField extends StatelessWidget {
     this.label,
     this.hintText,
     this.controller,
+    this.suffixIcon,
     this.onChanged,
+    this.maxLines,
     this.obscureText,
     this.validator,
     this.keyboardType,
@@ -38,11 +42,13 @@ class AppTextField extends StatelessWidget {
         TextFormField(
           controller: controller,
           onChanged: onChanged,
+          maxLines: maxLines ?? 1,
           validator: validator,
           keyboardType: keyboardType,
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
             hintText: hintText,
+            suffixIcon: suffixIcon,
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
             border: InputBorder.none,

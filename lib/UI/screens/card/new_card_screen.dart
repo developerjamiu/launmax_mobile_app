@@ -165,7 +165,7 @@ class _NewCardScreenState extends State<NewCardScreen> {
                         items: _years,
                         value: _currentYear,
                         onChanged: (value) {
-                          _currentMonth = value;
+                          _currentYear = value;
                         },
                       ),
                     ),

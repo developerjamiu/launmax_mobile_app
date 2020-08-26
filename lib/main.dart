@@ -6,6 +6,7 @@ import 'package:launmax_app/styles.dart';
 import 'package:launmax_app/ui/screens/card/cards_screen.dart';
 import 'package:launmax_app/ui/screens/card/new_card_screen.dart';
 import 'package:launmax_app/ui/screens/onboarding_screen.dart';
+import 'package:launmax_app/ui/screens/pickup/request_pickup_screen.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +56,7 @@ class _MyAppState extends State<MyApp> {
             textTheme: Typography.blackCupertino
                 .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
           ),
-          home: CardsScreen()
+          home: RequestPickupScreen()
           //MyHomePage(title: 'Flutter Demo Home Page'),
           ),
     );
