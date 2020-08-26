@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
-  final String text;
+  final String label;
+  final String hintText;
   final bool obscureText;
   final TextEditingController controller;
   final void Function(String) onChanged;
@@ -10,7 +11,8 @@ class AppTextField extends StatelessWidget {
 
   const AppTextField({
     Key key,
-    this.text,
+    this.label,
+    this.hintText,
     this.controller,
     this.onChanged,
     this.obscureText,
@@ -23,14 +25,15 @@ class AppTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        SizedBox(height: 16),
+        label ??
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+        label ?? SizedBox(height: 16),
         TextFormField(
           controller: controller,
           onChanged: onChanged,
@@ -38,7 +41,7 @@ class AppTextField extends StatelessWidget {
           keyboardType: keyboardType,
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
-            hintText: text,
+            hintText: hintText,
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
             border: InputBorder.none,

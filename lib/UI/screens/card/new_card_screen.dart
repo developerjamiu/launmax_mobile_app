@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:launmax_app/constant.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/widgets/app_card.dart';
 import 'package:launmax_app/ui/widgets/app_dropdown.dart';
 import 'package:launmax_app/ui/widgets/app_raised_button.dart';
 import 'package:launmax_app/ui/widgets/app_text_field.dart';
@@ -136,13 +134,15 @@ class _NewCardScreenState extends State<NewCardScreen> {
                 AppTextField(
                   controller: TextEditingController(),
                   keyboardType: TextInputType.text,
-                  text: 'Cardholder Name',
+                  label: 'Cardholder Name',
+                  hintText: 'Cardholder Name',
                 ),
                 SizedBox(height: 20.0),
                 AppTextField(
                   controller: TextEditingController(),
                   keyboardType: TextInputType.text,
-                  text: 'Card Number',
+                  label: 'Card Number',
+                  hintText: 'Card Number',
                   obscureText: true,
                 ),
                 SizedBox(height: 20.0),
@@ -179,7 +179,8 @@ class _NewCardScreenState extends State<NewCardScreen> {
                       child: AppTextField(
                         controller: TextEditingController(),
                         keyboardType: TextInputType.text,
-                        text: 'CVV',
+                        label: 'CVV',
+                        hintText: 'CVV',
                         obscureText: true,
                       ),
                     ),
