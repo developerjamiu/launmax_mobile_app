@@ -5,6 +5,7 @@ import 'package:launmax_app/UI/screens/Payment_process.dart/checkout.dart';
 import 'package:launmax_app/UI/screens/Payment_process.dart/confirm_payment.dart';
 import 'package:launmax_app/UI/screens/Payment_process.dart/payment.dart';
 import 'package:launmax_app/models/orders.dart';
+import 'package:launmax_app/styles.dart';
 
 class PaymentProcess extends StatefulWidget {
   Order order;
@@ -21,22 +22,83 @@ class _PaymentProcessState extends State<PaymentProcess> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        // backgroundColor: Colors.white,
-        // elevation: 0.0,
-        // leading: IconButton(
-        //     icon: Icon(FontAwesomeIcons.times, color: Colors.black),
-        //     onPressed: () => print('cancelled')),
-        // actions: [
-        //   FlatButton(
-        //       onPressed: () => print('signin'),
-        //       child: Text('Sign in',
-        //           style: TextStyle(color: Color(0xFF41A393), fontSize: 16)))
-        // ],
-      ),
+          // backgroundColor: Colors.white,
+          // elevation: 0.0,
+          // leading: IconButton(
+          //     icon: Icon(FontAwesomeIcons.times, color: Colors.black),
+          //     onPressed: () => print('cancelled')),
+          // actions: [
+          //   FlatButton(
+          //       onPressed: () => print('signin'),
+          //       child: Text('Sign in',
+          //           style: TextStyle(color: Color(0xFF41A393), fontSize: 16)))
+          // ],
+          ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            color: pageIndex == 0 ||
+                                    pageIndex == 1 ||
+                                    pageIndex == 2
+                                ? AppColor.primaryColor
+                                : Colors.white),
+                        child: Text('01'),
+                      ),
+                      Text('Checkout'),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  child: Text('-- -- - - -'),
+                ),
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            color: pageIndex == 1 || pageIndex == 2
+                                ? AppColor.primaryColor
+                                : Colors.white),
+                        child: Text('02'),
+                      ),
+                      Text('Payment'),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  child: Text('-- -- - - -'),
+                ),
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            color: pageIndex == 2
+                                ? AppColor.primaryColor
+                                : Colors.white),
+                        child: Text('03'),
+                      ),
+                      Text('Confirm'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
             Expanded(
               child: CarouselSlider(
                 carouselController: _carouselController,

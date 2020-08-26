@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:launmax_app/models/orders.dart';
+import 'package:launmax_app/styles.dart';
 
 class Checkout extends StatelessWidget {
     final CarouselController carouselController;
@@ -54,10 +55,14 @@ class Checkout extends StatelessWidget {
           ],
         ),
       ),
-      MaterialButton(onPressed: () {
+      MaterialButton(
+        color: AppColor.primaryColor,
+        minWidth: MediaQuery.of(context).size.width * 0.85,
+        height: MediaQuery.of(context).size.height * 0.06,
+        onPressed: () {
        carouselController.animateToPage(index + 1);
       },
-      child: Text('pay'),
+      child: Text('Proceed',style: TextStyle(color:Colors.white),),
       ),
     
     ]));
