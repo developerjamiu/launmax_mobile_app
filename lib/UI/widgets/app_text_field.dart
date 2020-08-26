@@ -25,15 +25,16 @@ class AppTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        label ??
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-        label ?? SizedBox(height: 16),
+        label != null
+            ? Text(
+                label,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            : SizedBox(),
+        label != null ? SizedBox(height: 16) : SizedBox(),
         TextFormField(
           controller: controller,
           onChanged: onChanged,
