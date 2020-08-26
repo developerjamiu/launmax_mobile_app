@@ -22,82 +22,82 @@ class _PaymentProcessState extends State<PaymentProcess> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          // backgroundColor: Colors.white,
-          // elevation: 0.0,
-          // leading: IconButton(
-          //     icon: Icon(FontAwesomeIcons.times, color: Colors.black),
-          //     onPressed: () => print('cancelled')),
-          // actions: [
-          //   FlatButton(
-          //       onPressed: () => print('signin'),
-          //       child: Text('Sign in',
-          //           style: TextStyle(color: Color(0xFF41A393), fontSize: 16)))
-          // ],
+        centerTitle: true,
+        title: Text('Payment',style: TextStyle(color:Colors.black),),
+          backgroundColor: Colors.white,
+          elevation: 0.0,
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+              onPressed: () => Navigator.pop(context)),
+        
           ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            color: pageIndex == 0 ||
-                                    pageIndex == 1 ||
-                                    pageIndex == 2
-                                ? AppColor.primaryColor
-                                : Colors.white),
-                        child: Text('01'),
-                      ),
-                      Text('Checkout'),
-                    ],
+            Container(
+              padding: EdgeInsets.all(5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14),
+                              color: pageIndex == 0 ||
+                                      pageIndex == 1 ||
+                                      pageIndex == 2
+                                  ? AppColor.primaryColor
+                                  : Colors.white),
+                          child: Text('01'),
+                        ),
+                        Text('Checkout'),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  child: Text('-- -- - - -'),
-                ),
-                Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            color: pageIndex == 1 || pageIndex == 2
-                                ? AppColor.primaryColor
-                                : Colors.white),
-                        child: Text('02'),
-                      ),
-                      Text('Payment'),
-                    ],
+                  SizedBox(
+                    child: Text('-- -- - - -'),
                   ),
-                ),
-                SizedBox(
-                  child: Text('-- -- - - -'),
-                ),
-                Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            color: pageIndex == 2
-                                ? AppColor.primaryColor
-                                : Colors.white),
-                        child: Text('03'),
-                      ),
-                      Text('Confirm'),
-                    ],
+                  Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14),
+                              color: pageIndex == 1 || pageIndex == 2
+                                  ? AppColor.primaryColor
+                                  : Colors.white),
+                          child: Text('02'),
+                        ),
+                        Text('Payment'),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(
+                    child: Text('-- -- - - -'),
+                  ),
+                  Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14),
+                              color: pageIndex == 2
+                                  ? AppColor.primaryColor
+                                  : Colors.white),
+                          child: Text('03'),
+                        ),
+                        Text('Confirm'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: CarouselSlider(

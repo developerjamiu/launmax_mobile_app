@@ -21,64 +21,64 @@ class Payment extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isPayment != true) {
       return Container(
-        padding: EdgeInsets.only(top: 200),
+          padding: EdgeInsets.only(top: 200),
           child: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-            Text(
-              'No Payment Found',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-            ),
-            Text(
-              'You can add and edit payments during checkout',
-              style: TextStyle(color: Colors.grey[500]),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Card(
-                    elevation: 9.9,
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(8),
-                      onTap: () {},
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.68,
-                        height: 184,
-                        margin: EdgeInsets.only(
-                          left: 50.0,
-                          right: 50.0,
-                          bottom: 50.0,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Center(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add_circle_outline,
-                                size: 72,
-                                color: Color(0xff41A393),
+                Text(
+                  'No Payment Found',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                ),
+                Text(
+                  'You can add and edit payments during checkout',
+                  style: TextStyle(color: Colors.grey[500]),
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Card(
+                        elevation: 9.9,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(8),
+                          onTap: () {},
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.68,
+                            height: 184,
+                            margin: EdgeInsets.only(
+                              left: 50.0,
+                              right: 50.0,
+                              bottom: 50.0,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add_circle_outline,
+                                    size: 72,
+                                    color: Color(0xff41A393),
+                                  ),
+                                  SizedBox(height: 24.3),
+                                  Text(
+                                    'Add Payment Method',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: AppColor.primaryColor,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              SizedBox(height: 24.3),
-                              Text(
-                                'Add Payment Method',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColor.primaryColor,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
-                    )),
-              ),
-            )
-          ])));
+                        )),
+                  ),
+                )
+              ])));
       //////////////
       ///
       ///
@@ -140,10 +140,18 @@ class Payment extends StatelessWidget {
                 ],
               ),
             ),
-
+            SizedBox(height: 10,),
             MaterialButton(
-              onPressed: ()=> carouselController.animateToPage(index + 1),
-              child: Text('Confirm Payment'),
+              color: AppColor.primaryColor,
+              minWidth: MediaQuery.of(context).size.width * 0.85,
+              height: MediaQuery.of(context).size.height * 0.06,
+              onPressed: () {
+                carouselController.animateToPage(index + 1);
+              },
+              child: Text(
+                'Pay',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),
