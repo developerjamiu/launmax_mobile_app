@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:launmax_app/widgets/form_fields.dart';
 
+import '../../../styles.dart';
+
 class AddPayment extends StatefulWidget {
   @override
   _AddPayment createState() => _AddPayment();
@@ -42,14 +44,17 @@ class _AddPayment extends State<AddPayment> {
                       child: Text(
                         "Enter your payment details",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 30.0),
+                            fontWeight: FontWeight.w600, fontSize: 15.0),
                       )),
                   SizedBox(
                     height: 10.0,
                   ),
-                  Text(
-                    "By Continuing you agree to our Terms ",
-                    style: TextStyle(color: Color(0xFF8B8B8C)),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "By Continuing you agree to our Terms ",
+                      style: TextStyle(color: Color(0xFF8B8B8C)),
+                    ),
                   ),
                 ],
               )),
@@ -73,37 +78,86 @@ class _AddPayment extends State<AddPayment> {
                           FormFields(
                             text: 'Card Number',
                             obscureText: true,
+                            keyboardType: TextInputType.number,
                           ),
                           SizedBox(
                             height: 30.0,
                           ),
+
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              DropdownButton(items: null, onChanged: null),
-                              DropdownButton(items: null, onChanged: null)
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                child: DropdownButtonFormField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        width: 0.2,
+                                        style: BorderStyle.solid
+                                      )
+                                    )
+                                  ),
+                                  elevation: 1,
+                                  items: [],
+                                  onChanged: (value) {},
+                                ),
+                              ),
+                              
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                child: DropdownButtonFormField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        width: 0.2,
+                                        style: BorderStyle.solid
+                                      )
+                                    )
+                                  ),
+                                  elevation: 1,
+                                  items: [],
+                                  onChanged: (value) {},
+                                ),
+                              ),
+                        
                             ],
                           ),
+
                           SizedBox(
                             height: 30.0,
                           ),
-                          Container(child:Row(
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FormFields(
-                                text: 'CSV',
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                child: FormFields(
+                                  text: 'CSV',
+                                ),
                               ),
                               Text(
-                                  'sdnndnfdjfndskjfnsdfbjdfjsdbfsdbfjdsbfsddknnsdjjnf'),
+                                  '3 or 4 digits usually found\n on the signature strip'),
                             ],
-                          ),)
+                          ),
 
                           SizedBox(
                             height: 30.0,
                           ),
 
-                          Switch(
-                            value: false,
-                            onChanged: null,
-                            activeColor: Colors.red,
+                          Material(
+                            elevation: 18.0,
+                            shape: CircleBorder(),
+                            clipBehavior: Clip.antiAlias,
+                            child: Switch(
+                              activeTrackColor: Colors.white,
+                              value: true,
+                              onChanged: (value) {
+                                print('null');
+                              },
+                              activeColor: AppColor.primaryColor,
+                            ),
                           ),
                           SizedBox(
                             height: 30.0,

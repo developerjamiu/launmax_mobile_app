@@ -36,7 +36,7 @@ class FormFields extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-          TextFormField(
+          TextField(
             onTap: onTap,
             style: TextStyle(
               height: height,
