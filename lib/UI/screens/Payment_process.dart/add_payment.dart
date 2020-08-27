@@ -89,38 +89,70 @@ class _AddPayment extends State<AddPayment> {
                             children: [
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.4,
-                                child: DropdownButtonFormField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 0.2,
-                                        style: BorderStyle.solid
-                                      )
-                                    )
-                                  ),
-                                  elevation: 1,
-                                  items: [],
-                                  onChanged: (value) {},
+                                child: Column(
+                                  children: [
+                                    Container(
+                                        alignment: Alignment.topLeft,
+                                        child: Text('Exp Month')),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    DropdownButtonFormField(
+                                      decoration: InputDecoration(
+                                        // border: OutlineInputBorder(
+                                        //     borderSide: BorderSide(
+                                        //         width: .02,
+                                        //        ),
+                                        //        ),
+
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xFF8B8B8C),
+                                              width: .2),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xFF8B8B8C),
+                                              width: .2),
+                                        ),
+                                      ),
+                                      elevation: 1,
+                                      items: [],
+                                      onChanged: (value) => print('dfdfd'),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.4,
-                                child: DropdownButtonFormField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 0.2,
-                                        style: BorderStyle.solid
-                                      )
-                                    )
-                                  ),
-                                  elevation: 1,
-                                  items: [],
-                                  onChanged: (value) {},
+                                child: Column(
+                                  children: [
+                                    Container(
+                                        alignment: Alignment.topLeft,
+                                        child: Text('Exp Year')),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    DropdownButtonFormField(
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xFF8B8B8C),
+                                              width: .2),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xFF8B8B8C),
+                                              width: .2),
+                                        ),
+                                      ),
+                                      elevation: 1,
+                                      items: [],
+                                      onChanged: (value) {},
+                                    ),
+                                  ],
                                 ),
                               ),
-                        
                             ],
                           ),
 
