@@ -203,7 +203,9 @@ class _AddPayment extends State<AddPayment> {
                                 ),
                               ),
                               Text(
-                                  '3 or 4 digits usually found\n on the signature strip'),
+                                  '3 or 4 digits usually found\n on the signature strip',style: TextStyle(
+                                    color:Colors.grey[700],
+                                  ),),
                             ],
                           ),
 

@@ -8,22 +8,44 @@ class CardSelectionBuilder extends StatefulWidget {
 }
 
 class _CardSelectionBuilderState extends State<CardSelectionBuilder> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: cards.length,
-      itemBuilder: (context, index) {
-        return Card(
-          elevation: 9.9,
-          child: SvgPicture.asset(
-            cards[index].imgUrl,
-            // placeholderBuilder: (context) => CircularProgressIndicator(),
-            width: 200,
-            height: 200.0,
-          ),
-        );
-      },
+    return SizedBox(
+      width: 0,
+      height: 60,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: cards.length,
+        itemBuilder: (context, index) {
+          return ClipRRect(
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 12.0),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                  color: _selectedIndex == index ? Colors.grey : Colors.white,
+                  offset: Offset(0.0, 1.0), //(x,y)
+                  blurRadius: 12.0,
+                )
+              ]),
+              // elevation: _selectedIndex == index ?  9.9 : 0 ,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                },
+                child: SvgPicture.asset(
+                  cards[index].imgUrl,
+                  width: 33,
+                  height: 33,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

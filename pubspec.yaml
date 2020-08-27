@@ -53,6 +53,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/card_selection/
 
   fonts:
     - family: SFProText
