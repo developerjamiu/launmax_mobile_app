@@ -1,23 +1,23 @@
-class Card {
+class Cards{
   String imgUrl;
 
-  Card({this.imgUrl});
+  Cards({this.imgUrl});
 }
 
-List<Card> cards = [
-  Card(
-    imgUrl: '',
+List<Cards> cards = [
+  Cards(
+    imgUrl: 'assets/card_selection/amex.svg',
   ),
-  Card(
-    imgUrl: '',
+  Cards(
+    imgUrl: 'assets/card_selection/mastercard.svg',
   ),
-  Card(
-    imgUrl: '',
+  Cards(
+    imgUrl: 'assets/card_selection/papal.svg',
   ),
-  Card(
-    imgUrl: '',
+  Cards(
+    imgUrl: 'assets/card_selection/visa.svg',
   ),
-  Card(
-    imgUrl: '',
+  Cards(
+    imgUrl: 'assets/card_selection/weird.svg',
   )
 ];

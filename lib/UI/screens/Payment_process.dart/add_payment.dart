@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:launmax_app/UI/widgets/card_selector_builder.dart';
 import 'package:launmax_app/widgets/form_fields.dart';
 
 import '../../../styles.dart';
@@ -58,6 +59,7 @@ class _AddPayment extends State<AddPayment> {
                   ),
                 ],
               )),
+          CardSelectionBuilder(),
           SizedBox(
             height: 30.0,
           ),
@@ -97,14 +99,8 @@ class _AddPayment extends State<AddPayment> {
                                     SizedBox(
                                       height: 10.0,
                                     ),
-                                    DropdownButtonFormField(
+                                    DropdownButtonFormField<int>(
                                       decoration: InputDecoration(
-                                        // border: OutlineInputBorder(
-                                        //     borderSide: BorderSide(
-                                        //         width: .02,
-                                        //        ),
-                                        //        ),
-
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color: Color(0xFF8B8B8C),
@@ -117,7 +113,25 @@ class _AddPayment extends State<AddPayment> {
                                         ),
                                       ),
                                       elevation: 1,
-                                      items: [],
+                                      items: <int>[
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5,
+                                        6,
+                                        7,
+                                        8,
+                                        9,
+                                        10,
+                                        11,
+                                        12
+                                      ].map((int val) {
+                                        return new DropdownMenuItem<int>(
+                                          child: new Text('$val'),
+                                          value: val,
+                                        );
+                                      }).toList(),
                                       onChanged: (value) => print('dfdfd'),
                                     ),
                                   ],
@@ -133,7 +147,7 @@ class _AddPayment extends State<AddPayment> {
                                     SizedBox(
                                       height: 10.0,
                                     ),
-                                    DropdownButtonFormField(
+                                    DropdownButtonFormField<int>(
                                       decoration: InputDecoration(
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -147,7 +161,26 @@ class _AddPayment extends State<AddPayment> {
                                         ),
                                       ),
                                       elevation: 1,
-                                      items: [],
+                                      items: <int>[
+                                        2020,
+                                        2021,
+                                        2022,
+                                        2023,
+                                        2024,
+                                        2025,
+                                        2026,
+                                        2027,
+                                        2027,
+                                        2028,
+                                        2029,
+                                        2030,
+                                        2031
+                                      ].map((int val) {
+                                        return new DropdownMenuItem<int>(
+                                          value: val,
+                                          child: new Text('$val'),
+                                        );
+                                      }).toList(),
                                       onChanged: (value) {},
                                     ),
                                   ],
@@ -166,7 +199,7 @@ class _AddPayment extends State<AddPayment> {
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.4,
                                 child: FormFields(
-                                  text: 'CSV',
+                                  text: 'CVV',
                                 ),
                               ),
                               Text(
