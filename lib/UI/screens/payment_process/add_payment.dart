@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:launmax_app/widgets/form_fields.dart';
+import 'package:launmax_app/ui/widgets/app_text_form_field.dart';
 
 class AddPayment extends StatefulWidget {
   @override
@@ -63,15 +63,15 @@ class _AddPayment extends State<AddPayment> {
                       key: _formKey,
                       child: Column(
                         children: [
-                          FormFields(
-                            text: 'Cardholder name',
+                          AppTextFormField(
+                            label: 'Cardholder name',
                           ),
                           SizedBox(
                             height: 30.0,
                           ),
 
-                          FormFields(
-                            text: 'Card Number',
+                          AppTextFormField(
+                            label: 'Card Number',
                             obscureText: true,
                           ),
                           SizedBox(
@@ -89,8 +89,8 @@ class _AddPayment extends State<AddPayment> {
                           Container(
                             child: Row(
                               children: [
-                                FormFields(
-                                  text: 'CSV',
+                                AppTextFormField(
+                                  label: 'CSV',
                                 ),
                                 Text(
                                     'sdnndnfdjfndskjfnsdfbjdfjsdbfsdbfjdsbfsddknnsdjjnf'),
