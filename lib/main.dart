@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:launmax_app/UI/screens/homeScreen/home_screen.dart';
 import 'package:launmax_app/UI/screens/viewPricing/viewPricing.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
@@ -53,7 +54,7 @@ class _MyAppState extends State<MyApp> {
             textTheme: Typography.blackCupertino
                 .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
           ),
-          home: ViewPricing()),
+          home: HomeScreen()),
     );
   }
 }
