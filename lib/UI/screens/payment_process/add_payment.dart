@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:launmax_app/UI/widgets/card_selector_builder.dart';
-import 'package:launmax_app/widgets/form_fields.dart';
+import 'package:launmax_app/ui/widgets/app_text_form_field.dart';
 
 import '../../../styles.dart';
+import 'card_selector_builder.dart';
 
 class AddPayment extends StatefulWidget {
   @override
@@ -70,15 +70,15 @@ class _AddPayment extends State<AddPayment> {
                       key: _formKey,
                       child: Column(
                         children: [
-                          FormFields(
-                            text: 'Cardholder name',
+                          AppTextFormField(
+                            label: 'Cardholder name',
                           ),
                           SizedBox(
                             height: 30.0,
                           ),
 
-                          FormFields(
-                            text: 'Card Number',
+                          AppTextFormField(
+                            label: 'Card Number',
                             obscureText: true,
                             keyboardType: TextInputType.number,
                           ),
@@ -192,21 +192,16 @@ class _AddPayment extends State<AddPayment> {
                           SizedBox(
                             height: 30.0,
                           ),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: FormFields(
-                                  text: 'CVV',
+                          Container(
+                            child: Row(
+                              children: [
+                                AppTextFormField(
+                                  label: 'CSV',
                                 ),
-                              ),
-                              Text(
-                                  '3 or 4 digits usually found\n on the signature strip',style: TextStyle(
-                                    color:Colors.grey[700],
-                                  ),),
-                            ],
+                                Text(
+                                    'sdnndnfdjfndskjfnsdfbjdfjsdbfsdbfjdsbfsddknnsdjjnf'),
+                              ],
+                            ),
                           ),
 
                           SizedBox(

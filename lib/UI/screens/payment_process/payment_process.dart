@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/checkout.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/confirm_payment.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/payment.dart';
 import 'package:launmax_app/models/orders.dart';
 import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/ui/screens/payment_process/checkout.dart';
+import 'package:launmax_app/ui/screens/payment_process/payment.dart';
+
+import 'confirm_payment.dart';
 
 class PaymentProcess extends StatefulWidget {
   Order order;
@@ -23,14 +23,16 @@ class _PaymentProcessState extends State<PaymentProcess> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Payment',style: TextStyle(color:Colors.black),),
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-              onPressed: () => Navigator.pop(context)),
-        
-          ),
+        title: Text(
+          'Payment',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+            onPressed: () => Navigator.pop(context)),
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

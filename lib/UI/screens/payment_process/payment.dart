@@ -1,9 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/confirm_payment.dart';
 import 'package:launmax_app/models/orders.dart';
 
-import '../../../constant.dart';
 import '../../../styles.dart';
 import 'add_payment.dart';
 
@@ -43,7 +41,10 @@ class Payment extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(8),
                           onTap: () {
-                            Navigator.push(context,MaterialPageRoute(builder: (_) => AddPayment()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => AddPayment()));
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.68,
@@ -143,7 +144,9 @@ class Payment extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             MaterialButton(
               color: AppColor.primaryColor,
               minWidth: MediaQuery.of(context).size.width * 0.85,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -10,7 +9,7 @@ class SnackBarService {
 
   static SnackBarService instance = SnackBarService();
 
-  SnackBarService() {}
+  SnackBarService();
 
   set buildContext(BuildContext _context) {
     _buildContext = _context;

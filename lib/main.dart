@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (context) => AppState(),
         ),
-     
         ChangeNotifierProvider(
           create: (_) => SigninViewModel(),
         ),

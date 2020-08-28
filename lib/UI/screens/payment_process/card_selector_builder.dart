@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/cards.dart';
+import 'package:launmax_app/UI/screens/payment_process/cards.dart';
 
 class CardSelectionBuilder extends StatefulWidget {
   @override
