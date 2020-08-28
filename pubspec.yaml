@@ -43,7 +43,6 @@ dependencies:
   url_launcher:
   device_preview: ^0.4.5
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -53,6 +52,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/card_selection/
 
   fonts:
     - family: SFProText

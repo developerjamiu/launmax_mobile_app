@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/screens/signup/signup_screen.dart';
 
 import '../widgets/app_raised_button.dart';
 import '../widgets/page_indicator.dart';
 import '../widgets/page_view_items.dart';
+import 'auth/auth_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   @override
@@ -66,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   void getStarted() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => SignupScreen()),
+      MaterialPageRoute(builder: (_) => AuthScreen()),
     );
   }
 
