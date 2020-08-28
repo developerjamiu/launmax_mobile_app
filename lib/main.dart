@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/ui/screens/Payment_process.dart/add_payment.dart';
+import 'package:launmax_app/ui/screens/pickup/request_pickup_screen.dart';
 import 'package:launmax_app/ui/screens/pickup/weekly_pickup.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
@@ -53,7 +55,7 @@ class _MyAppState extends State<MyApp> {
             textTheme: Typography.blackCupertino
                 .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
           ),
-          home: WeeklyPickupScreen()
+          home: ScreenController()
           //MyHomePage(title: 'Flutter Demo Home Page'),
           ),
     );
