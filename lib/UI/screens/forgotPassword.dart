@@ -16,28 +16,6 @@ class ForgotPassword extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: GestureDetector(
-          onTap: () {},
-          child: Icon(Icons.clear),
-        ),
-        actions: [
-          FlatButton(
-            color: Colors.white,
-            onPressed: () {},
-            child: Text(
-              'Sign in',
-              style: TextStyle(
-                fontFamily: 'SFProText-Regular',
-                fontWeight: FontWeight.w400,
-                color: Color(0xff135A59),
-              ),
-            ),
-          )
-        ],
-      ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(

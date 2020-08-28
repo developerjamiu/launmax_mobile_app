@@ -10,7 +10,7 @@ class AppLabelButton extends StatelessWidget {
     this.textColor = AppColor.primaryColor,
     this.prefixIcon,
     this.textStyle = const TextStyle(
-        fontFamily: 'Montserrat', fontSize: 15, fontWeight: FontWeight.w300),
+        fontFamily: 'Montserrat', fontSize: 16, fontWeight: FontWeight.w300),
   });
 
   final VoidCallback onPressed;

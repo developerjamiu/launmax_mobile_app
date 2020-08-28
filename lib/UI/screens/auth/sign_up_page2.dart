@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:launmax_app/models/user.dart';
+import 'package:launmax_app/ui/widgets/app_label_button.dart';
 import 'package:launmax_app/ui/widgets/app_raised_button.dart';
 import 'package:launmax_app/ui/widgets/app_text_form_field.dart';
 
@@ -14,6 +15,15 @@ class SignUpPage2 extends StatefulWidget {
     this.carouselController,
     this.index,
   });
+
+  Widget appbarButton() {
+    return AppLabelButton(
+      text: 'Sign in',
+      onPressed: () {
+        carouselController.animateToPage(2);
+      },
+    );
+  }
 
   @override
   _SignUpPage2State createState() => _SignUpPage2State();
@@ -97,24 +107,19 @@ class _SignUpPage2State extends State<SignUpPage2> {
         Container(
             padding: EdgeInsets.only(left: 18.0, right: 18.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Set up Account",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 30.0),
-                    )),
+                Text(
+                  "Set up Account",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30.0),
+                ),
                 SizedBox(
                   height: 10.0,
                 ),
-                Container(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Hi John",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 18.0),
-                    )),
+                Text(
+                  "Hi John",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.0),
+                ),
                 SizedBox(
                   height: 10.0,
                 ),
@@ -161,8 +166,7 @@ class _SignUpPage2State extends State<SignUpPage2> {
                   //  Button
                   AppRaisedButton(
                     text: 'Create Account',
-                    onPressed: () => widget.carouselController
-                        .animateToPage(widget.index - 1),
+                    onPressed: () => widget.carouselController.previousPage(),
                   )
                 ],
               ),
