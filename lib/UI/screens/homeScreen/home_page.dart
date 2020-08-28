@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:launmax_app/UI/screens/order/track_order.dart';
+import 'package:launmax_app/UI/screens/viewPricing/viewPricing.dart';
 
 import 'package:launmax_app/ui/widgets/app_card.dart';
 
@@ -72,7 +73,10 @@ class HomePage extends StatelessWidget {
         HomePageCard(
           text: "View Pricing",
           iconPath: 'assets/images/naira.svg',
-          onTap: () {},
+           onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => ViewPricing()));
+          },
         ),
         HomePageCard(
           text: "Track Order",
