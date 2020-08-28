@@ -39,10 +39,8 @@ class _SignUpPage1State extends State<SignUpPage1> {
   Future<void> nextPage() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      print(_newUser);
+      //print(_newUser);
       FocusScope.of(context).unfocus();
-      //_handleAddNewCity();
-      //Navigator.pop(context);
       setState(() => isLoading = true);
       String error = await _repository.createUser(_newUser);
       setState(() => isLoading = false);

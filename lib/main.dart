@@ -2,8 +2,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:launmax_app/models/app_state.dart';
+import 'package:launmax_app/models/user.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/screens/signIn/sign_in_page.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +32,9 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(
           create: (context) => AppState(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => User(),
         ),
         ChangeNotifierProvider(
           create: (_) => SigninViewModel(),

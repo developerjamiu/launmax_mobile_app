@@ -167,7 +167,8 @@ class _SignUpPage2State extends State<SignUpPage2> {
                   AppRaisedButton(
                     text: 'Create Account',
                     onPressed: () => widget.carouselController.previousPage(),
-                  )
+                  ),
+                  SizedBox(height: 30.0),
                 ],
               ),
             ),

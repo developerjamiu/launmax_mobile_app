@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "174356096097",
-    "firebase_url": "https://launmax-app.firebaseio.com",
-    "project_id": "launmax-app",
-    "storage_bucket": "launmax-app.appspot.com"
+    "project_number": "328213833273",
+    "firebase_url": "https://launmax-52d75.firebaseio.com",
+    "project_id": "launmax-52d75",
+    "storage_bucket": "launmax-52d75.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:174356096097:android:5aaaab4c74349fbb2cb620",
+        "mobilesdk_app_id": "1:328213833273:android:e27c42420b2b90236b0fe8",
         "android_client_info": {
           "package_name": "com.launmax.launmax_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "174356096097-kpjopdb9ljljs4la5r11j5icbsrn8ki2.apps.googleusercontent.com",
+          "client_id": "328213833273-17hehs1u4l3lreqa9sl5hb9okthic5jq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.launmax.launmax_app",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "174356096097-22hd7sr2g233d1ek9kbubme8t9tgqo7a.apps.googleusercontent.com",
+          "client_id": "328213833273-7e33ajtnqkrcdrmd7sp4lnlq5eg6f5h9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBFgQYyNJhGndazrJu9KHexo4TkW1OVTFI"
+          "current_key": "AIzaSyA6b-fFOhGrTjMKLN9UFRNr1wrUKkDG9rA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "174356096097-22hd7sr2g233d1ek9kbubme8t9tgqo7a.apps.googleusercontent.com",
+              "client_id": "328213833273-7e33ajtnqkrcdrmd7sp4lnlq5eg6f5h9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

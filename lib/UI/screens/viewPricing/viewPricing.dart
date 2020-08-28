@@ -41,7 +41,7 @@ class ViewPricing extends StatelessWidget {
       length: myTabs.length,
       child: Scaffold(
         appBar: AppBar(
-          leadingWidth: 92,
+          //     leadingWidth: 92,
           leading: GestureDetector(
             onTap: () {
               Navigator.pop(context);

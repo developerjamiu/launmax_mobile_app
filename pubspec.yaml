@@ -29,10 +29,10 @@ dependencies:
   google_fonts:
   provider:
   flutter_svg:
-  firebase_core: "0.5.0"
-  firebase_auth: "^0.18.0+1"
-  cloud_firestore: "^0.14.0+1"
-  cloud_functions: "^0.6.0"
+  firebase_core: "0.4.5"
+  firebase_auth: "^0.16.1"
+  cloud_firestore: "^0.13.7"
+  cloud_functions: "^0.5.0"
   flutter_spinkit: "^4.1.2"
 
   carousel_slider: ^2.1.0
