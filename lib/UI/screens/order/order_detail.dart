@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:launmax_app/UI/screens/Payment_process.dart/payment_process.dart';
 import 'package:launmax_app/models/orders.dart';
+import 'package:launmax_app/ui/screens/payment_process/payment_process.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../styles.dart';
@@ -50,7 +50,8 @@ class OrderDetail extends StatelessWidget {
                           color: order.statusColor,
                         ),
                         Text(order.status,
-                            style: TextStyle(color: order.statusColor,fontSize: 13)),
+                            style: TextStyle(
+                                color: order.statusColor, fontSize: 13)),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.06),
                         Text("$newDate"),
@@ -159,11 +160,11 @@ class OrderDetail extends StatelessWidget {
                             icon: Icon(Icons.phone), //`Icon` to display
                             label: Text('Call'), //`Text` to display
                             onPressed: () async {
-                        print("tapped");
-                        var url = "${order.phoneNumber}";
-                        print(url);
-                        launch("tel://$url");
-                      },
+                              print("tapped");
+                              var url = "${order.phoneNumber}";
+                              print(url);
+                              launch("tel://$url");
+                            },
                           ),
                         ],
                       ),
@@ -175,7 +176,10 @@ class OrderDetail extends StatelessWidget {
                   onPressed: () {
                     // Navigator.pop(context);
 
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=>PaymentProcess(order:order)));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => PaymentProcess(order: order)));
                   },
                   color: AppColor.primaryColor[100],
                   minWidth: MediaQuery.of(context).size.width * 0.7,

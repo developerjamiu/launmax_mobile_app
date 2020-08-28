@@ -6,12 +6,12 @@ import 'package:launmax_app/ui/widgets/app_dropdown.dart';
 import 'package:launmax_app/ui/widgets/app_raised_button.dart';
 import 'package:launmax_app/ui/widgets/app_text_field.dart';
 
-class AddPayment extends StatefulWidget {
+class AddPaymentScreen extends StatefulWidget {
   @override
-  _AddPaymentState createState() => _AddPaymentState();
+  _AddPaymentScreenState createState() => _AddPaymentScreenState();
 }
 
-class _AddPaymentState extends State<AddPayment> {
+class _AddPaymentScreenState extends State<AddPaymentScreen> {
   final formKey = GlobalKey<FormState>();
 
   var _months = [

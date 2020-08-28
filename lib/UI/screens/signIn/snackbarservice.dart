@@ -1,16 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
-import 'colors.dart';
+import 'package:launmax_app/styles.dart';
 
 class SnackBarService {
   BuildContext _buildContext;
 
   static SnackBarService instance = SnackBarService();
 
-  SnackBarService() {}
+  SnackBarService();
 
   set buildContext(BuildContext _context) {
     _buildContext = _context;
@@ -20,7 +18,7 @@ class SnackBarService {
     Get.snackbar('Hey there!', _message,
         snackPosition: SnackPosition.TOP,
         snackStyle: SnackStyle.FLOATING,
-        leftBarIndicatorColor: buttonColor,
+        leftBarIndicatorColor: AppColor.primaryColor,
         backgroundColor: Colors.red,
         borderRadius: 0,
         duration: Duration(seconds: 4),
@@ -33,7 +31,7 @@ class SnackBarService {
     Get.snackbar('Hey there!', _message,
         snackPosition: SnackPosition.TOP,
         snackStyle: SnackStyle.FLOATING,
-        leftBarIndicatorColor: buttonColor,
+        leftBarIndicatorColor: AppColor.primaryColor,
         backgroundColor: Colors.lightGreen,
         borderRadius: 0,
         duration: Duration(seconds: 4),
