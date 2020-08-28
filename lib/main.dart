@@ -7,6 +7,9 @@ import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
 
+import 'UI/screens/homeScreen/home_page.dart';
+import 'UI/screens/homeScreen/home_screen.dart';
+
 void main() {
   //runApp(MyApp());
   runApp(DevicePreview(
@@ -52,7 +55,10 @@ class _MyAppState extends State<MyApp> {
             textTheme: Typography.blackCupertino
                 .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
           ),
-          home: ScreenController()),
+          // home: ScreenController()
+          home: HomeScreen()
+          
+          ),
     );
   }
 }

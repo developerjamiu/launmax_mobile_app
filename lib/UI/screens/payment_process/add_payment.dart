@@ -12,8 +12,6 @@ class AddPayment extends StatefulWidget {
 }
 
 class _AddPayment extends State<AddPayment> {
-  final _genderController = TextEditingController();
-  String _selectedGender = 'Select Gender';
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -104,12 +102,12 @@ class _AddPayment extends State<AddPayment> {
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color: Color(0xFF8B8B8C),
-                                              width: .2),
+                                              width: .4),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color: Color(0xFF8B8B8C),
-                                              width: .2),
+                                              width: .4),
                                         ),
                                       ),
                                       elevation: 1,
@@ -152,12 +150,12 @@ class _AddPayment extends State<AddPayment> {
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color: Color(0xFF8B8B8C),
-                                              width: .2),
+                                              width: .4),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color: Color(0xFF8B8B8C),
-                                              width: .2),
+                                              width: .4),
                                         ),
                                       ),
                                       elevation: 1,
@@ -194,12 +192,16 @@ class _AddPayment extends State<AddPayment> {
                           ),
                           Container(
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                AppTextFormField(
-                                  label: 'CSV',
+                                SizedBox(
+                                  width:MediaQuery.of(context).size.width * 0.4,
+                                  child: AppTextFormField(
+                                    label: 'CSV',
+                                  ),
                                 ),
                                 Text(
-                                    'sdnndnfdjfndskjfnsdfbjdfjsdbfsdbfjdsbfsddknnsdjjnf'),
+                                    '3 or 4 digits usually found\non the signature strip',style: TextStyle(color:Colors.grey[500]),),
                               ],
                             ),
                           ),
@@ -208,17 +210,26 @@ class _AddPayment extends State<AddPayment> {
                             height: 30.0,
                           ),
 
-                          Material(
-                            elevation: 18.0,
-                            shape: CircleBorder(),
-                            clipBehavior: Clip.antiAlias,
-                            child: Switch(
-                              activeTrackColor: Colors.white,
-                              value: true,
-                              onChanged: (value) {
-                                print('null');
-                              },
-                              activeColor: AppColor.primaryColor,
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              children: [
+                                Material(
+                                  elevation: 3.0,
+                                  shape: CircleBorder(),
+                                  clipBehavior: Clip.antiAlias,
+                                  child: Switch(
+                                    
+                                    activeTrackColor: Colors.white,
+                                    value: false,
+                                    onChanged: (value) {
+                                      print('null');
+                                    },
+                                    activeColor: AppColor.primaryColor,
+                                  ),
+                                ),
+                                Text('Set as default')
+                              ],
                             ),
                           ),
                           SizedBox(
@@ -247,40 +258,5 @@ class _AddPayment extends State<AddPayment> {
         ],
       ),
     );
-  }
-
-  genderSelection() {
-    List<String> gender = ['male', 'female', 'i rather not say'];
-    List<IconData> genderIcon = [
-      FontAwesomeIcons.male,
-      FontAwesomeIcons.female,
-      FontAwesomeIcons.userLock
-    ];
-    showDialog(
-        context: context,
-        builder: (_) => new AlertDialog(
-              title: new Text("Select your gender"),
-              content: Container(
-                height: MediaQuery.of(context).size.height * 0.5,
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: ListView.builder(
-                    itemCount: gender.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ListTile(
-                        onTap: () {
-                          setState(() {
-                            _genderController..text = gender[index];
-                            _selectedGender = gender[index];
-                          });
-                          print(_genderController.text);
-                          print(_selectedGender);
-                          Navigator.pop(context);
-                        },
-                        title: Text(gender[index]),
-                        leading: Icon(genderIcon[index]),
-                      );
-                    }),
-              ),
-            ));
   }
 }
