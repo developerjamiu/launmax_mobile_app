@@ -5,6 +5,7 @@ class AppTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final int maxLines;
+  final bool enabled;
   final TextEditingController controller;
   final Widget suffixIcon;
   final void Function(String) onChanged;
@@ -17,6 +18,7 @@ class AppTextField extends StatelessWidget {
     this.hintText,
     this.controller,
     this.suffixIcon,
+    this.enabled,
     this.onChanged,
     this.maxLines,
     this.obscureText,
@@ -45,6 +47,7 @@ class AppTextField extends StatelessWidget {
           maxLines: maxLines ?? 1,
           validator: validator,
           keyboardType: keyboardType,
+          enabled: enabled,
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
             hintText: hintText,
@@ -67,6 +70,10 @@ class AppTextField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 0.5),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey, width: 0.5),
               borderRadius: BorderRadius.circular(5),
             ),
           ),

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:launmax_app/styles.dart';
 import 'package:launmax_app/ui/widgets/app_dropdown.dart';
 import 'package:launmax_app/ui/widgets/app_raised_button.dart';
 import 'package:launmax_app/ui/widgets/app_text_field.dart';
@@ -30,7 +29,6 @@ class _RequestPickupScreenState extends State<RequestPickupScreen> {
 
   String _currentVehicle = _vehicle[0];
   String _currentPreference = _preference[0];
-  bool _isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
