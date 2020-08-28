@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:launmax_app/models/orders.dart';
 
 import '../../../styles.dart';
@@ -12,7 +13,7 @@ class Payment extends StatelessWidget {
 
   Payment({this.carouselController, this.index, this.order});
 
-  final bool isPayment = false;
+  final bool isPayment = true;
 
   static const double delivery_fee = 100.00;
 
@@ -107,10 +108,35 @@ class Payment extends StatelessWidget {
                     onPressed: () {
                       print('Apc change');
                     },
-                    child: Text("change", style: TextStyle(color: Colors.red)))
+                    child: Text("change", style: TextStyle(color: Colors.red))),
               ],
             ),
             Divider(),
+            Container(
+              child: Row(
+
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                        border: Border(
+                      bottom: BorderSide(width: .2),
+                      top: BorderSide(width: .2),
+                      left: BorderSide(width: .2),
+                      right: BorderSide(width: .2),
+                    )),
+                    child: SvgPicture.asset(
+                      'assets/card_selection/mastercard.svg',
+                      width: 33,
+                      height: 33,
+                    ),
+                  ),
+                  SizedBox(width:MediaQuery.of(context).size.width * .09),
+
+                  Text('**** ***** 5673')
+                ],
+              ),
+            ),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
