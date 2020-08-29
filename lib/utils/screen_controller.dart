@@ -36,12 +36,12 @@ class _ScreenControllerState extends State<ScreenController> {
   @override
   Widget build(BuildContext context) {
     if (Provider.of<AppState>(context, listen: true).isFlutterFireInitialized) {
-      if (auth.FirebaseAuth.instance.currentUser == null) {
+      if (auth.FirebaseAuth.instance.currentUser != null) {
         // No User, show OnBoarding
         //print(auth.FirebaseAuth.instance.currentUser);
         return AuthScreen();
       } else {
-        Provider.of<User>(context, listen: false).initialize();
+        Provider.of<AppState>(context, listen: false).initializeUser();
       }
     }
     return HomeScreen();

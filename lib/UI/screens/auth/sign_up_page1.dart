@@ -34,7 +34,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
   final User _newUser = User.fromSignUp1();
   bool _formChanged = false;
   bool isLoading = false;
-  bool passwordVisible = false;
+  bool hidePassword = true;
 
   Future<void> nextPage() async {
     if (_formKey.currentState.validate()) {
@@ -44,6 +44,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
       setState(() => isLoading = true);
       String error = await _repository.createUser(_newUser);
       setState(() => isLoading = false);
+
       if (error == null) {
         widget.carouselController.animateToPage(widget.index + 1);
       } else {
@@ -125,16 +126,16 @@ class _SignUpPage1State extends State<SignUpPage1> {
                   AppTextFormField(
                     label: 'Password',
                     readOnly: false,
-                    obscureText: passwordVisible,
+                    obscureText: hidePassword,
                     onSaved: (String val) => _newUser.password = val,
                     autovalidate: _formChanged,
                     validator: Validator.isPassword,
                     suffixIcon: IconButton(
-                      icon: passwordVisible
+                      icon: hidePassword
                           ? Icon(Icons.remove_red_eye)
                           : Icon(Icons.visibility_off),
                       onPressed: () {
-                        setState(() => passwordVisible = !passwordVisible);
+                        setState(() => hidePassword = !hidePassword);
                       },
                     ),
                   ),
