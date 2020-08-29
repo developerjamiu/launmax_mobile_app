@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/screens/cards_screen.dart';
+import 'package:launmax_app/ui/screens/card/cards_screen.dart';
 import 'package:launmax_app/ui/screens/signIn/res.dart';
 import 'package:launmax_app/ui/widgets/app_card.dart';
 

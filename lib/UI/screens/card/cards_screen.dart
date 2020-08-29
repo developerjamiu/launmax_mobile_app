@@ -1,10 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:launmax_app/models/card_model.dart';
 import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/ui/screens/card/new_card_screen.dart';
 
-import '../../constant.dart';
-import '../../utils/cards_enum.dart';
-import '../widgets/credit_card.dart';
+import '../../../constant.dart';
+import '../../widgets/credit_card.dart';
+
+/// To switch between Cards and No Cards Screen
+/// Go to Card Model and uncomment to Card Models
+
+/// The Screen looks cool on one card but I don't really think it
+/// look good on multiple card. Maybe there can be another
+/// UI for cases when there are more than one cards
 
 class CardsScreen extends StatelessWidget {
   @override
@@ -59,17 +67,55 @@ class CardsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CreditCard(
-              cardHolderName: 'Emily Rosser',
-              cardNumber: '1234567891012123',
-              cardType: CardType.diner,
-              expiryDate: '05/23',
-              margin: EdgeInsets.all(16.0),
+            Expanded(
+              child: creditCards.isEmpty
+                  ? Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'No Card Found',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 16.0),
+                          Text(
+                            'Add new card to enable payment method on your account',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                    )
+                  : ListView(
+                      children: creditCards
+                          .map(
+                            (CardModel creditCard) => CreditCard(
+                              cardHolderName: creditCard.cardHolderName,
+                              cardNumber: creditCard.cardNumber,
+                              cardType: creditCard.cardType,
+                              expiryDate: creditCard.expiryDate,
+                              margin: EdgeInsets.only(
+                                  left: 16.0, right: 16.0, top: 16.0),
+                            ),
+                          )
+                          .toList(),
+                    ),
             ),
             AddCard(
-              margin: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 40.0),
+              margin: EdgeInsets.only(
+                  left: 16.0, right: 16.0, bottom: 40.0, top: 16.0),
               iconData: Icons.add_circle_outline,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => NewCardScreen(),
+                  ),
+                );
+              },
               text: 'Add New Card',
             ),
           ],
@@ -107,7 +153,10 @@ class AddCard extends StatelessWidget {
           color: color,
           borderRadius: BorderRadius.circular(5),
           border: Border.all(color: AppColor.stroke),
-          boxShadow: [kDropShadow(0, 12, 12), kDropShadow(0, 16, 24)],
+          boxShadow: [
+            kDropShadow(0, 12, 12),
+            kDropShadow(0, 16, 24),
+          ],
         ),
         child: Center(
           child: Column(
