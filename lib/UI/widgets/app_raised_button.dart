@@ -35,7 +35,7 @@ class AppRaisedButton extends StatelessWidget {
   final Color backgroundColor;
   final Widget prefixIcon;
 
-  /// The [Height] is 45.0 by default
+  /// The [Height] is 50.0 by default
   final double height;
   final bool isLoading;
   final double elevation;
@@ -43,7 +43,7 @@ class AppRaisedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      height: height ?? 45,
+      height: height ?? 50,
       elevation: elevation,
       minWidth: double.infinity,
       onPressed: onPressed,

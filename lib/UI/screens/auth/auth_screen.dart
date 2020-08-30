@@ -13,6 +13,7 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   CarouselController _carouselController = CarouselController();
+  int initialPage = 1;
   int pageIndex = 0;
   Widget appBarButton;
 
@@ -21,11 +22,9 @@ class _AuthScreenState extends State<AuthScreen> {
     List<Widget> authItems = [
       SignUpPage1(
         carouselController: _carouselController,
-        index: pageIndex,
       ),
       SignUpPage2(
         carouselController: _carouselController,
-        index: pageIndex,
       ),
       SignInPage(
         carouselController: _carouselController,
@@ -67,6 +66,7 @@ class _AuthScreenState extends State<AuthScreen> {
             height: double.infinity,
             autoPlay: false,
             viewportFraction: 1.0,
+            initialPage: initialPage,
             scrollPhysics: NeverScrollableScrollPhysics(),
             enableInfiniteScroll: false,
             onPageChanged: onChangedFunction,

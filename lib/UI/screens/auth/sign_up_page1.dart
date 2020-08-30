@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:launmax_app/models/auth_repository.dart';
 import 'package:launmax_app/models/user.dart';
 import 'package:launmax_app/ui/widgets/app_label_button.dart';
@@ -11,9 +10,8 @@ import 'package:launmax_app/utils/validators.dart';
 
 class SignUpPage1 extends StatefulWidget {
   final CarouselController carouselController;
-  final int index;
 
-  SignUpPage1({this.carouselController, this.index});
+  SignUpPage1({this.carouselController});
 
   Widget appbarButton() {
     return AppLabelButton(
@@ -36,17 +34,17 @@ class _SignUpPage1State extends State<SignUpPage1> {
   bool isLoading = false;
   bool hidePassword = true;
 
-  Future<void> nextPage() async {
+  Future<void> nextPage(context) async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       //print(_newUser);
       FocusScope.of(context).unfocus();
       setState(() => isLoading = true);
-      String error = await _repository.createUser(_newUser);
+      String error = await _repository.createUser(_newUser, context);
       setState(() => isLoading = false);
 
       if (error == null) {
-        widget.carouselController.animateToPage(widget.index + 1);
+        widget.carouselController.nextPage();
       } else {
         Scaffold.of(context).showSnackBar(AppSnackBar.error(error));
       }
@@ -132,8 +130,8 @@ class _SignUpPage1State extends State<SignUpPage1> {
                     validator: Validator.isPassword,
                     suffixIcon: IconButton(
                       icon: hidePassword
-                          ? Icon(Icons.remove_red_eye)
-                          : Icon(Icons.visibility_off),
+                          ? Icon(Icons.visibility_off)
+                          : Icon(Icons.remove_red_eye),
                       onPressed: () {
                         setState(() => hidePassword = !hidePassword);
                       },
@@ -146,7 +144,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
                   AppRaisedButton(
                     text: 'Next',
                     isLoading: isLoading,
-                    onPressed: nextPage,
+                    onPressed: () => nextPage(context),
                   ),
                   SizedBox(
                     height: 30.0,

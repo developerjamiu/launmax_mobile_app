@@ -11,7 +11,7 @@ class AuthRepository {
 
   auth.FirebaseAuth firebaseAuth = auth.FirebaseAuth.instance;
 
-  Future<String> createUser(User user, {BuildContext context}) async {
+  Future<String> createUser(User user, BuildContext context) async {
     try {
       // Create Firebase user
       auth.UserCredential userCredential =
@@ -32,6 +32,7 @@ class AuthRepository {
       print(e);
       return e.message;
     } catch (e) {
+      print(e);
       return 'Error: $e, Please try again later';
     }
 
@@ -45,5 +46,22 @@ class AuthRepository {
     } catch (e) {
       return e.message;
     }
+  }
+
+  setUpUser(User user, BuildContext context) async {
+    try {
+      // Upload user data
+      await _usersCollection.doc(user.uid).update(user.toJson());
+
+      // Fetch user data afresh for consumption by the whole app
+      await Provider.of<AppState>(context, listen: false).initializeUser();
+
+      print("Set up User: $user");
+    } catch (e) {
+      print(e);
+      return 'Error: $e, Please try again later';
+    }
+
+    return null;
   }
 }

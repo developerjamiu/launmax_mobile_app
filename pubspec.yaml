@@ -33,12 +33,14 @@ dependencies:
   firebase_auth: "^0.18.0+1"
   cloud_firestore: "^0.14.0+2"
   cloud_functions: "^0.6.0"
+  flutter_google_places: ^0.2.6
   flutter_spinkit: "^4.1.2"
 
   carousel_slider: ^2.1.0
   font_awesome_flutter: any
   intl:
   outline_material_icons: ^0.1.1
+  intl_phone_number_input: ^0.4.6+2
 
   url_launcher:
   device_preview: ^0.4.5
