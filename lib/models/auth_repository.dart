@@ -11,6 +11,28 @@ class AuthRepository {
 
   auth.FirebaseAuth firebaseAuth = auth.FirebaseAuth.instance;
 
+  Future<String> loginUser(User user, BuildContext context) async {
+    try {
+      // Create Firebase user
+      auth.UserCredential userCredential =
+          await firebaseAuth.signInWithEmailAndPassword(
+              email: user.email, password: user.password);
+
+      // Fetch user data afresh for consumption by the whole app
+      await Provider.of<AppState>(context, listen: false).initializeUser();
+
+      print("Login User: $user");
+    } on auth.FirebaseAuthException catch (e) {
+      print(e);
+      return e.message;
+    } catch (e) {
+      print(e);
+      return 'Error: $e, Please try again later';
+    }
+
+    return null;
+  }
+
   Future<String> createUser(User user, BuildContext context) async {
     try {
       // Create Firebase user
@@ -44,11 +66,12 @@ class AuthRepository {
       DocumentSnapshot userData = await _usersCollection.doc(uid).get();
       return User.fromJson(userData.data());
     } catch (e) {
-      return e.message;
+      print(e);
+      return null;
     }
   }
 
-  setUpUser(User user, BuildContext context) async {
+  Future<String> setUpUser(User user, BuildContext context) async {
     try {
       // Upload user data
       await _usersCollection.doc(user.uid).update(user.toJson());

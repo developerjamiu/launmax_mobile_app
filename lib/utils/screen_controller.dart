@@ -39,12 +39,13 @@ class _ScreenControllerState extends State<ScreenController> {
             // No User, show OnBoarding
             return AuthScreen();
           } else {
-            Provider.of<AppState>(context, listen: false).initializeUser();
+            Provider.of<AppState>(context, listen: false)
+                .initializeUser(checkIfRegFinished: true, context: context);
           }
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
-        return AuthScreen();
+        return HomeScreen();
       },
     );
   }

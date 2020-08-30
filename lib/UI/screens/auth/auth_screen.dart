@@ -1,19 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:launmax_app/ui/screens/signIn/sign_in_page.dart';
+import 'package:launmax_app/ui/screens/auth/sign_in_page.dart';
 import 'package:launmax_app/ui/widgets/app_label_button.dart';
 
 import 'sign_up_page1.dart';
 import 'sign_up_page2.dart';
 
 class AuthScreen extends StatefulWidget {
+  final initialPage;
+
+  const AuthScreen({Key key, this.initialPage = 0}) : super(key: key);
+
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
 
 class _AuthScreenState extends State<AuthScreen> {
   CarouselController _carouselController = CarouselController();
-  int initialPage = 1;
   int pageIndex = 0;
   Widget appBarButton;
 
@@ -37,7 +40,9 @@ class _AuthScreenState extends State<AuthScreen> {
         pageIndex = index;
         try {
           appBarButton = (authItems[index] as dynamic).appbarButton();
-        } finally {}
+        } catch (e) {
+          print(e);
+        }
       });
     }
 
@@ -66,7 +71,8 @@ class _AuthScreenState extends State<AuthScreen> {
             height: double.infinity,
             autoPlay: false,
             viewportFraction: 1.0,
-            initialPage: initialPage,
+            scrollDirection: Axis.vertical,
+            initialPage: widget.initialPage,
             scrollPhysics: NeverScrollableScrollPhysics(),
             enableInfiniteScroll: false,
             onPageChanged: onChangedFunction,
