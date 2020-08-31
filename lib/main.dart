@@ -3,11 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
-import 'package:launmax_app/ui/screens/onboarding_screen.dart';
-import 'package:launmax_app/ui/screens/payment_process/add_payment.dart';
-import 'package:launmax_app/ui/screens/payment_process/add_payment_screen.dart';
-import 'package:launmax_app/ui/screens/signIn/sign_in_page.dart';
+import 'package:launmax_app/ui/screens/homeScreen/home_screen.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
+import 'package:launmax_app/utils/routes.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -57,7 +55,11 @@ class _MyAppState extends State<MyApp> {
             textTheme: Typography.blackCupertino
                 .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
           ),
-          home: OnBoardingScreen(),
+          //home: ScreenController(),
+          routes: {
+            AppRoutes.screenController: (context) => ScreenController(),
+            AppRoutes.homeScreen: (context) => HomeScreen()
+          },
         );
       },
     );

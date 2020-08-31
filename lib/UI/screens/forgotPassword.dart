@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:launmax_app/UI/screens/signIn/colors.dart';
 import 'package:launmax_app/UI/screens/signIn/res.dart';
 import 'package:launmax_app/UI/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/UI/screens/signIn/textfields.dart';
 import 'package:launmax_app/UI/screens/signIn/validators.dart';
+import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/utils/validators.dart';
 import 'package:provider/provider.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -77,7 +78,7 @@ class ForgotPassword extends StatelessWidget {
                   ),
                   SigninTextField(
                     controller: emailController,
-                    validator: EmailValidator.validate,
+                    validator: Validator.isEmail,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Email',
                     obscure: false,
@@ -128,7 +129,7 @@ class ForgotPassword extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           minWidth: width,
-                          color: buttonColor,
+                          color: AppColor.primaryColor,
                           height: McGyver.rsDoubleH(context, 9),
                           child: Text(
                             'Reset Password',
@@ -153,7 +154,7 @@ class ForgotPassword extends StatelessWidget {
                             }
                           })
                       : SpinKitThreeBounce(
-                          color: buttonColor,
+                          color: AppColor.primaryColor,
                         ),
                   SizedBox(
                     height: McGyver.rsDoubleH(context, 3),
