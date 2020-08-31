@@ -3,6 +3,9 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:launmax_app/UI/screens/order/track_order.dart';
 import 'package:launmax_app/UI/screens/viewPricing/viewPricing.dart';
+import 'package:launmax_app/constant.dart';
+import 'package:launmax_app/ui/screens/pickup/request_pickup_screen.dart';
+import 'package:launmax_app/ui/screens/pickup/weekly_pickup.dart';
 
 import 'package:launmax_app/ui/widgets/app_card.dart';
 
@@ -68,12 +71,14 @@ class HomePage extends StatelessWidget {
         HomePageCard(
           text: "Schedule Pick up",
           iconPath: 'assets/images/calendar.svg',
-          onTap: () {},
+          onTap: () {
+            schedulePickup(context);
+          },
         ),
         HomePageCard(
           text: "View Pricing",
           iconPath: 'assets/images/naira.svg',
-           onTap: () {
+          onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (_) => ViewPricing()));
           },
@@ -87,6 +92,89 @@ class HomePage extends StatelessWidget {
           },
         ),
       ],
+    );
+  }
+
+  void schedulePickup(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: kRoundedTopRectangleBorder,
+      builder: (context) => bottomSheet(context),
+    );
+  }
+
+  Widget bottomSheet(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(32),
+          topRight: Radius.circular(32),
+        ),
+      ),
+      child: ListView(
+        shrinkWrap: true, // use it
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 6,
+                width: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(3),
+                  color: Color(0xFFBDBDBD),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Text(
+            'Schedule Pickup',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 24.0,
+              color: Color(0xFF151522),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 20),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => RequestPickupScreen()),
+              );
+            },
+            title: Text(
+              'One-time Pick up',
+              style: TextStyle(fontSize: 18),
+            ),
+            subtitle: Text(
+              'Schedule one-time pickup at your convenient time',
+              style: TextStyle(fontSize: 12, color: Color(0xFF787676)),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios, size: 16),
+          ),
+          SizedBox(height: 20),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => WeeklyPickupScreen()),
+              );
+            },
+            title: Text(
+              'Weekly Pick up',
+              style: TextStyle(fontSize: 18),
+            ),
+            subtitle: Text(
+              'Setup weekly recurring pickup for your laundry',
+              style: TextStyle(fontSize: 12, color: Color(0xFF787676)),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios, size: 16),
+          ),
+          SizedBox(height: 40),
+        ],
+      ),
     );
   }
 }
