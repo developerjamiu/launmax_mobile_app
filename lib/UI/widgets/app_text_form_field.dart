@@ -69,6 +69,7 @@ class AppTextFormField extends StatelessWidget {
       onSaved: onSaved,
       onTap: onTap,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         hintText: hintText,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,

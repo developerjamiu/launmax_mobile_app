@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/models/user.dart';
 import 'package:launmax_app/styles.dart';
+import 'package:launmax_app/ui/screens/homeScreen/home_screen.dart';
 import 'package:launmax_app/ui/screens/payment_process/add_payment.dart';
 import 'package:launmax_app/ui/screens/payment_process/add_payment_screen.dart';
-import 'package:launmax_app/ui/screens/signIn/sign_in_page.dart';
+import 'package:launmax_app/ui/screens/auth/sign_in_page.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
+import 'package:launmax_app/utils/routes.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -42,22 +44,27 @@ class _MyAppState extends State<MyApp> {
       ],
       builder: (context, child) {
         return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'LaunMax',
-            theme: ThemeData(
-              appBarTheme: AppBarTheme(
-                color: Colors.white,
-                iconTheme: IconThemeData(color: Colors.black),
-                actionsIconTheme: IconThemeData(color: Colors.black),
-                brightness: Brightness.light, // status bar brightness
-              ),
-              primarySwatch: AppColor.primaryColor,
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-              scaffoldBackgroundColor: AppColor.background,
-              textTheme: Typography.blackCupertino
-                  .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
+          debugShowCheckedModeBanner: false,
+          title: 'LaunMax',
+          theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              color: Colors.white,
+              iconTheme: IconThemeData(color: Colors.black),
+              actionsIconTheme: IconThemeData(color: Colors.black),
+              brightness: Brightness.light, // status bar brightness
             ),
-            home: ScreenController());
+            primarySwatch: AppColor.primaryColor,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            scaffoldBackgroundColor: AppColor.background,
+            textTheme: Typography.blackCupertino
+                .copyWith(bodyText2: TextStyle(fontFamily: 'SFProText')),
+          ),
+          //home: ScreenController(),
+          routes: {
+            AppRoutes.screenController: (context) => ScreenController(),
+            AppRoutes.homeScreen: (context) => HomeScreen()
+          },
+        );
       },
     );
   }

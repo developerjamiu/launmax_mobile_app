@@ -2,11 +2,18 @@ import 'dart:io';
 
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:launmax_app/models/app_state.dart';
+import 'package:launmax_app/models/auth_repository.dart';
+import 'package:launmax_app/models/user.dart';
 import 'package:launmax_app/styles.dart';
 
 import 'package:launmax_app/ui/widgets/app_label_button.dart';
 import 'package:launmax_app/ui/widgets/app_raised_button.dart';
 import 'package:launmax_app/ui/widgets/app_text_form_field.dart';
+import 'package:launmax_app/utils/AppSnackBar.dart';
+import 'package:launmax_app/utils/routes.dart';
+import 'package:launmax_app/utils/validators.dart';
+import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {
   final CarouselController carouselController;
@@ -32,6 +39,42 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
+  final _repository = AuthRepository();
+  final User _newUser = User();
+  bool _formChanged = false;
+  bool isLoading = false;
+  bool hidePassword = true;
+
+  Future<void> submitHandler() async {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      //print(_newUser);
+      FocusScope.of(context).unfocus();
+      setState(() => isLoading = true);
+      String error = await _repository.loginUser(_newUser, context);
+      setState(() => isLoading = false);
+
+      if (error == null) {
+        // Check if user finished registration
+        if (!Provider.of<AppState>(context, listen: false).user.finishedReg) {
+          widget.carouselController.animateToPage(1);
+        } else {
+          Navigator.of(context).pushNamedAndRemoveUntil(
+            AppRoutes.homeScreen,
+            (Route<dynamic> route) => false,
+          );
+        }
+      } else {
+        Scaffold.of(context).showSnackBar(AppSnackBar.error(error));
+      }
+    } else {
+      //FocusScope.of(context).requestFocus(focusNode);
+    }
+  }
+
+  void resetPassword() {
+    widget.carouselController.animateToPage(3);
+  }
 
   Widget _buildAppleButton() {
     return Column(
@@ -119,12 +162,15 @@ class _SignInPageState extends State<SignInPage> {
           child: Builder(
             builder: (_) => Form(
               key: _formKey,
+              onChanged: _onFormChange,
               child: Column(
                 children: [
                   AppTextFormField(
                     label: 'Email Address',
                     hintText: 'example@mail.com',
-                    readOnly: false,
+                    onSaved: (String val) => _newUser.email = val,
+                    autovalidate: _formChanged,
+                    validator: Validator.isEmail,
                   ),
                   SizedBox(
                     height: 20.0,
@@ -132,7 +178,18 @@ class _SignInPageState extends State<SignInPage> {
                   AppTextFormField(
                     label: 'Password',
                     readOnly: false,
-                    obscureText: true,
+                    obscureText: hidePassword,
+                    onSaved: (String val) => _newUser.password = val,
+                    autovalidate: _formChanged,
+                    validator: Validator.isPassword,
+                    suffixIcon: IconButton(
+                      icon: hidePassword
+                          ? Icon(Icons.visibility_off)
+                          : Icon(Icons.remove_red_eye),
+                      onPressed: () {
+                        setState(() => hidePassword = !hidePassword);
+                      },
+                    ),
                   ),
                   SizedBox(
                     height: 20.0,
@@ -140,34 +197,16 @@ class _SignInPageState extends State<SignInPage> {
                   //  Button
                   AppRaisedButton(
                     text: 'Log in',
-                    onPressed: () {
-                      final form = _formKey.currentState;
-                      form.save();
-                      if (form.validate()) {
-                        try {
-                          /*viewModel
-                                    .signIn(emailController.text,
-                                        passwordController.text)
-                                    .then((signInUser) {
-                                  if (signInUser != null) {
-                                    Get.to(HomeScreen());
-                                  } else {}
-                                });*/
-                        } catch (e) {
-                          print(e);
-                        }
-                      }
-                    },
+                    onPressed: () => submitHandler(),
                   ),
                   SizedBox(height: 10.0),
                   AppLabelButton(
                     text: 'Reset Password',
                     textStyle:
                         TextStyle(fontSize: 17, fontWeight: FontWeight.w300),
-                    onPressed: () {
-                      widget.carouselController.animateToPage(3);
-                    },
-                  )
+                    onPressed: resetPassword,
+                  ),
+                  SizedBox(height: 20.0)
                 ],
               ),
             ),
@@ -175,5 +214,12 @@ class _SignInPageState extends State<SignInPage> {
         )
       ],
     );
+  }
+
+  void _onFormChange() {
+    if (_formChanged) return;
+    setState(() {
+      _formChanged = true;
+    });
   }
 }
