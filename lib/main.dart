@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
           ),
           //home: ScreenController(),
           routes: {
-            AppRoutes.screenController: (context) => OnBoardingScreen(),
+            AppRoutes.screenController: (context) => ScreenController(),
             AppRoutes.homeScreen: (context) => HomeScreen()
           },
         );
