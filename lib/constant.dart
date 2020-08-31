@@ -16,6 +16,13 @@ final kRoundedRectangleBorder = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(5),
 );
 
+final kRoundedTopRectangleBorder = RoundedRectangleBorder(
+  borderRadius: BorderRadius.only(
+    topLeft: Radius.circular(32),
+    topRight: Radius.circular(32),
+  ),
+);
+
 final kBoxShadow = <BoxShadow>[
   BoxShadow(
     offset: Offset(0, 16),

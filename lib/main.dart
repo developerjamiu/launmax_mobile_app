@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:launmax_app/models/app_state.dart';
 import 'package:launmax_app/styles.dart';
 import 'package:launmax_app/ui/screens/homeScreen/home_screen.dart';
+import 'package:launmax_app/ui/screens/onboarding_screen.dart';
 import 'package:launmax_app/ui/screens/signIn/signinViewModel.dart';
 import 'package:launmax_app/utils/routes.dart';
 import 'package:launmax_app/utils/screen_controller.dart';
@@ -57,7 +58,7 @@ class _MyAppState extends State<MyApp> {
           ),
           //home: ScreenController(),
           routes: {
-            AppRoutes.screenController: (context) => ScreenController(),
+            AppRoutes.screenController: (context) => OnBoardingScreen(),
             AppRoutes.homeScreen: (context) => HomeScreen()
           },
         );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:launmax_app/constant.dart';
 import 'package:launmax_app/styles.dart';
 
 import '../widgets/app_raised_button.dart';
@@ -15,6 +16,7 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController _pageController;
   int currentIndex = 0;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -65,8 +67,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   void getStarted() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => AuthScreen()),
+    showModalBottomSheet(
+      context: context,
+      shape: kRoundedTopRectangleBorder,
+      builder: (context) => bottomSheet,
     );
   }
 
@@ -83,9 +87,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.white,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
+        key: scaffoldKey,
         backgroundColor: Colors.white,
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -129,38 +135,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       text: 'Next',
                       onPressed: navigateToNextPage,
                     )
-                  : Flexible(
-                      child: ListView(
-                        shrinkWrap: true, // use it
-                        children: [
-                          AppRaisedButton(
-                            text: 'Sign in with Google',
-                            textColor: Colors.black54,
-                            prefixIcon: Image.asset(
-                              'assets/images/googlelogo.png',
-                              width: 24,
-                            ),
-                            onPressed: () {},
-                            backgroundColor: Colors.white,
-                          ),
-                          SizedBox(height: 20),
-                          AppRaisedButton(
-                            text: 'Sign in with Apple',
-                            textColor: Colors.black54,
-                            prefixIcon: Image.asset(
-                              'assets/images/apple.png',
-                              width: 24,
-                            ),
-                            onPressed: () {},
-                            backgroundColor: Colors.white,
-                          ),
-                          SizedBox(height: 20),
-                          AppRaisedButton(
-                            text: 'Get Started',
-                            onPressed: getStarted,
-                          ),
-                        ],
-                      ),
+                  : AppRaisedButton(
+                      text: 'Get Started',
+                      onPressed: getStarted,
                     ),
             ],
           ),
@@ -168,4 +145,80 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
     );
   }
+
+  Widget get bottomSheet => Container(
+        padding: EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(32),
+            topRight: Radius.circular(32),
+          ),
+        ),
+        child: ListView(
+          shrinkWrap: true, // use it
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 6,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(3),
+                    color: Color(0xFFBDBDBD),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Get Started',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24.0,
+                color: Color(0xFF151522),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20),
+            AppRaisedButton(
+              text: 'Sign in with Google',
+              textColor: Colors.black54,
+              prefixIcon: Image.asset(
+                'assets/images/googlelogo.png',
+                width: 24,
+              ),
+              onPressed: () {},
+              backgroundColor: Colors.white,
+            ),
+            SizedBox(height: 20),
+            AppRaisedButton(
+              text: 'Sign in with Apple',
+              textColor: Colors.black54,
+              prefixIcon: Image.asset(
+                'assets/images/apple.png',
+                width: 24,
+              ),
+              onPressed: () {},
+              backgroundColor: Colors.white,
+            ),
+            SizedBox(height: 20),
+            AppRaisedButton(
+              text: 'Get Started',
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => AuthScreen()),
+                );
+              },
+            ),
+            SizedBox(height: 20),
+            Text(
+              'By signing up, you agree to our Terms of Service and Privacy Policy.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12, color: Color(0xFF787676)),
+            ),
+            SizedBox(height: 10),
+          ],
+        ),
+      );
 }
